@@ -1,12 +1,13 @@
 import React from "react"
 import { TeamData } from "../Data/Data"
 import HomeTeam from "./HomeComponents/HomeTeam"
+import {Link} from "react-router-dom"
 export default function Team(){
     const [data,setData]=React.useState([])
 
     React.useEffect(()=>{
         setData(TeamData)
-    },[TeamData])
+    },[])
 
     const elements = data.map((item)=>{
         return( 
@@ -30,7 +31,7 @@ export default function Team(){
                     </h3>
                     <p className="team-detail">BUY SMOKEY GRILLED meats and CHICKEN GET catling FREE</p>
                     <div className="button">
-                        <a href=""><button>SHOP NOW</button></a>
+                        <Link to="/products"><button>SHOP NOW</button></Link>
                     </div>
 
                 </div>

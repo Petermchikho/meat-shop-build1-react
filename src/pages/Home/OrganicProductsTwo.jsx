@@ -2,6 +2,7 @@ import React from "react"
 import Shape from "../../assets/images/title_shape.png"
 import {OrganicProductTwoData} from "../../Data/Data"
 import HomeOrganicProductsTwo from "../../components/HomeComponents/HomeOrganicProductsTwo"
+import {Link} from "react-router-dom"
 export default function OrganicProductsTwo(){
     const [data,setData] = React.useState([])
     React.useEffect(()=>{
@@ -38,9 +39,9 @@ export default function OrganicProductsTwo(){
                 {elements} 
             </div>
             <div className="button-shop">
-                <a href="">
+                <Link to="/products">
                     <button>SHOP NOW</button>
-                </a>
+                </Link>
             </div>
 
         </section>

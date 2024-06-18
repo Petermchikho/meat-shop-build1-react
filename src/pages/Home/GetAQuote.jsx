@@ -1,5 +1,5 @@
 import React from "react"
-
+import {Link} from "react-router-dom"
 export default function GetAQuote(){
     return(
         <>
@@ -8,12 +8,12 @@ export default function GetAQuote(){
                     <img src="assets/images/cta_icon.png" alt="" />
                     <h3>Get a Free Quote</h3>
                     <div className="buttons-quotes">
-                        <a href="">
+                        <Link to="/products">
                             <button className="buy">
-                                <span>BUY NOW</span>
+                                 <span>BUY NOW</span>
                             </button>
-                        </a>
-                        <a href="tel:0998671706">
+                        </Link>
+                        <Link to="tel:0998671706">
                             <button className="call">
                                 <span className="icon">
                                     <i className="bi bi-headset">
@@ -23,7 +23,7 @@ export default function GetAQuote(){
                                 <span className="red">MAKE A CALL</span>
 
                             </button>
-                        </a>
+                        </Link>
                     </div>
                 </div>
 

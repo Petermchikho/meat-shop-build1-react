@@ -2212,7 +2212,7 @@ ul li ul li.active span{
   .copyright a{
     color:var(--color-red) !important;
   }
-  #to-top{
+  .to-top{
 	width: 35px;
 	height: 35px;
 	line-height: 35px;

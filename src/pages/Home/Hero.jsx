@@ -4,6 +4,7 @@ import BannerShape1 from "../../assets/images/banner_shape01.png"
 import BannerShape2 from "../../assets/images/banner_shape02.png"
 import BannerShape3 from "../../assets/images/banner_shape03.png"
 import BannerShape4 from "../../assets/images/banner_shape04.png"
+import {Link} from "react-router-dom"
 export default function Hero(){
     return(
         <>
@@ -16,11 +17,11 @@ export default function Hero(){
                <h6>
                    Butcher & Meat shop
                </h6>
-               <a href="">
+               <Link to="/products">
                    <button>
                        ORDER NOW
                    </button>
-               </a>
+               </Link>
                <img src={BannerImg} alt="banner" />
                
            </div>

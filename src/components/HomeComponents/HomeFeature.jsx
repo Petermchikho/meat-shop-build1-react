@@ -1,14 +1,15 @@
 import React from "react";
 import FeatureShape from "../../assets/images/features_shape.png";
+import {Link} from "react-router-dom"
 export default function HomeFeature(props){
     return(
         <>
         <div className={`feature-container feature-$${props.id}`} key={props.id}>
                 <div className="feauture-left">
                     <p className="red bold">{props.title}</p>
-                    <a href="#">
+                    <Link to="/products">
                        <span>{props.grabber}</span>
-                    </a>
+                    </Link>
                     <span className="description">
                         {props.description}
                     </span>

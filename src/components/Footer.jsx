@@ -9,6 +9,7 @@ import Insta6 from "../assets/images/footer_insta06.png"
 import Insta7 from "../assets/images/footer_insta07.png"
 import Insta8 from "../assets/images/footer_insta08.png"
 import Card from "../assets/images/card.png"
+import {Link} from "react-router-dom"
 export default function Footer(){
     return (
         <>
@@ -16,30 +17,30 @@ export default function Footer(){
                 <div className="footer-top">
                     <div className="footer-top-left">
                         <div className="social-link-footer">
-                            <a href="" className="social-icon">
+                            <Link to="/contact" className="social-icon">
                                 <span >
                                     <i className="bi bi-facebook"></i>
 
                                 </span>
-                            </a>
-                            <a href="" className="social-icon">
+                            </Link>
+                            <Link to="/contact" className="social-icon">
                                 <span >
                                     <i className="bi bi-instagram"></i>
 
                                 </span>
-                            </a>
-                            <a href="" className="social-icon">
+                            </Link>
+                            <Link to="/contact" className="social-icon">
                                 <span >
                                     <i className="bi bi-twitter"></i>
 
                                 </span>
-                            </a>
-                            <a href="" className="social-icon">
+                            </Link>
+                            <Link to="/contact" className="social-icon">
                                 <span >
                                     <i className="bi bi-linkedin"></i>
 
                                 </span>
-                            </a>
+                            </Link>
                             
 
                         </div>
@@ -89,44 +90,44 @@ export default function Footer(){
                         <h6>
                             Important Links
                         </h6>
-                        <a href="">
+                        <Link to="/contact">
                             CURATION
-                        </a>
-                        <a href="">
+                        </Link>
+                        <Link to="/contact">
                             ABOUT US
-                        </a>
-                        <a href="">
+                        </Link>
+                        <Link to="/contact">
                             MY ACCOUNT
-                        </a>
-                        <a href="">
+                        </Link>
+                        <Link to="/contact">
                             CONTACT
-                        </a>
-                        <a href="">
+                        </Link>
+                        <Link to="/contact">
                             SHIPPING & RETURNS
-                        </a>
+                        </Link>
                     </div>
                     <div className="links">
                         <h6>
                             
                         CATEGORIES
                         </h6>
-                        <a href="">
+                        <Link to="/contact">
                             How to Order
-                        </a>
-                        <a href="">
+                        </Link>
+                        <Link to="/contact">
                             Delivery Info
-                        </a>
-                        <a href="">
-                            FAQs
+                        </Link>
+                        <Link to="/contact">
+                            FAQLink
 
-                        </a>
-                        <a href="">
-                            Terms
+                        </Link>
+                        <Link to="/contact">
+                            TermLink
 
-                        </a>
-                        <a href="">
+                        </Link>
+                        <Link to="/contact">
                             Privacy Policy
-                        </a>
+                        </Link>
                     </div>
                     <div className="instagram">
                         <h6>INSTAGRAM</h6>
@@ -149,7 +150,7 @@ export default function Footer(){
                 </div>
                 <div className="footer-last">
                     <div className="copyright">
-                        <p>&copy; 2024 By <a href="">Peter</a>, All Rights Reserved</p>
+                        <p>&copy; 2024 By <Link to="/contact">Peter</Link>, All Rights Reserved</p>
 
                     </div>
                     <div className="payment">

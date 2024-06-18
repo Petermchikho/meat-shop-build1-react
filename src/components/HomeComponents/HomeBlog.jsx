@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom"
 export default function HomeBlog(props){
     return(
         <div className="blog" key={props.id}>
@@ -8,7 +8,7 @@ export default function HomeBlog(props){
             </div>
             <div className="content">
                 <div className="authour-comment">
-                    <a href="" className="author">
+                    <Link to="/contact" className="author">
                         <i className="bi bi-person-fill">
 
                         </i>
@@ -16,7 +16,7 @@ export default function HomeBlog(props){
                             {props.author}
                         </p>
 
-                    </a>
+                    </Link>
                     <div className="comment">
                         <i className="bi bi-chat-fill">
 
@@ -29,9 +29,9 @@ export default function HomeBlog(props){
                 </div>
                 <div className="title-content">
                     <div className="title">
-                        <a href="">
+                        <Link to="/blogs">
                             <p>{props.title}</p>
-                        </a>
+                        </Link>
                         
 
                     </div>
@@ -41,12 +41,12 @@ export default function HomeBlog(props){
                     </div>
                 </div>
                 <div className="read-more">
-                    <a href=""><p className="read-more-p">Read More</p></a>
-                    <a href="" className="button-link">
+                    <Link to="/blogs"><p className="read-more-p">Read More</p></Link>
+                    <Link to="/blogs" className="button-link">
                         <span>
                             <i className="bi bi-chevron-right"></i>
                         </span>
-                    </a>
+                    </Link>
 
                 </div>
             </div>
