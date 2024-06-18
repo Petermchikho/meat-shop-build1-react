@@ -534,13 +534,13 @@ header.header-scrolled nav{
     z-index: 1;
 }
 .nav-link-main:hover a.main-link::before,
-.nav-link-main.active a.main-link::before{
+.nav-link-main a.main-link.active::before{
   opacity: 1;
   margin-left: 0px;
   
 }
 .nav-link-main:hover a.main-link::after,
-.nav-link-main.active a.main-link::after{
+.nav-link-main a.main-link.active::after{
     opacity: 1;
     margin-left: 10px;   
 }
@@ -597,7 +597,7 @@ ul li ul li span{
     height: 0px;
 }
 ul li ul li:hover span,
-ul li ul li.active span{
+ul li ul li a.active span{
 	display: block;
     width: 7px;
     height: 7px;

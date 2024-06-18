@@ -92,43 +92,43 @@ export default function Header(){
                 <div className="nav-links-container">
                     <ul className="nav-links">
                         <li className="nav-link-main active">
-                            <NavLink to="/"  className="main-link">HOME</NavLink>
+                            <NavLink to="/"  className={({isActive})=> isActive ? "main-link active" :"main-link"}>HOME</NavLink>
                             <ul className="nav-link-minor active">
-                                <li className="active"><span></span><NavLink to="/" >HOME ONE</NavLink></li>
-                                <li><span></span><NavLink to="/">HOME TWO</NavLink></li>
-                                <li><span></span><NavLink to="/">HOME THREE</NavLink></li>
+                                <li className="active"><span></span><NavLink to="/"  className={({isActive})=> isActive ? "active" : ""}>HOME ONE</NavLink></li>
+                                <li><span></span><NavLink to="/" className={({isActive})=> isActive ? "active" : ""}>HOME TWO</NavLink></li>
+                                <li><span></span><NavLink to="/" className={({isActive})=> isActive ? "active" : ""}>HOME THREE</NavLink></li>
                             </ul>
                         </li>
                         <li className="nav-link-main">
-                            <NavLink to="/about"className="main-link">ABOUT US</NavLink>
+                            <NavLink to="/about" className={({isActive})=> isActive ? "main-link active" :"main-link"}>ABOUT US</NavLink>
                         </li>
                         <li className="nav-link-main">
-                            <NavLink to="/products" className="main-link">PRODUCTS</NavLink>
+                            <NavLink to="/products" className={({isActive})=> isActive ? "main-link active" :"main-link"}>PRODUCTS</NavLink>
                             <ul className="nav-link-minor">
-                                <li><span></span><NavLink to="products">SHOP ONE</NavLink></li>
-                                <li><span></span><NavLink to="products">SHOP TWO</NavLink></li>
-                                <li><span></span><NavLink to="products">SHOP DETAILS</NavLink></li>
+                                <li><span></span><NavLink to="products" className={({isActive})=> isActive ? "active" : ""}>SHOP ONE</NavLink></li>
+                                <li><span></span><NavLink to="products" className={({isActive})=> isActive ? "active" : ""}>SHOP TWO</NavLink></li>
+                                <li><span></span><NavLink to="products" className={({isActive})=> isActive ? "active" : ""}>SHOP DETAILS</NavLink></li>
                             </ul>
                         </li>
                         <li className="nav-link-main">
                             <NavLink to="/blogs" className="main-link">BLOG</NavLink>
                             <ul className="nav-link-minor">
-                                <li><span></span><NavLink to="/blogs">OUR BLOGS</NavLink></li>
-                                <li><span></span><NavLink to="/blogs">BLOG DETAILS</NavLink></li>
+                                <li><span></span><NavLink to="/blogs" className={({isActive})=> isActive ? "active" : ""}>OUR BLOGS</NavLink></li>
+                                <li><span></span><NavLink to="/blogs" className={({isActive})=> isActive ? "active" : ""}>BLOG DETAILS</NavLink></li>
                             </ul>
                         </li>
                         <li className="nav-link-main">
-                            <NavLink to="/pages" className="main-link">
+                            <NavLink to="/pages" className={({isActive})=> isActive ? "main-link active" :"main-link"}>
                                PAGES
                             </NavLink>
                             <ul className="nav-link-minor">
-                                <li><span></span><NavLink to="/pages">SERVICES PAGE</NavLink></li>
-                                <li><span></span><NavLink to="/pages">SERVICES DETAILS</NavLink></li>
-                                <li><span></span><NavLink to="/pages">TEAM DETAILS</NavLink></li>
+                                <li><span></span><NavLink to="/pages" className={({isActive})=> isActive ? "active" : ""}>SERVICES PAGE</NavLink></li>
+                                <li><span></span><NavLink to="/pages" className={({isActive})=> isActive ? "active" : ""}>SERVICES DETAILS</NavLink></li>
+                                <li><span></span><NavLink to="/pages" className={({isActive})=> isActive ? "active" : ""}>TEAM DETAILS</NavLink></li>
                             </ul>
                         </li>
                         <li className="nav-link-main">
-                            <NavLink to="/contact" className="main-link">CONTACT</NavLink>
+                            <NavLink to="/contact" className={({isActive})=> isActive ? "main-link active" :"main-link"}>CONTACT</NavLink>
                         </li>
                     </ul>
 

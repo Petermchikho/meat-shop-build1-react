@@ -121,3 +121,24 @@ export const BlogData=[
 
     }
 ]
+
+export const AboutData=[
+    {
+        id:1,
+        icon:"flaticon-online-shop",
+        heading:"100% Organic Meat",
+        description:"We provide well shaped fresh and the organic meat from our farm very hygienic well"
+    },
+    {
+        id:2,
+        icon:"flaticon-chicken-1",
+        heading:"Beef Tenderloin",
+        description:"We provide well shaped fresh and the organic meat from our farm very hygienic well"
+    },
+    {
+        id:3,
+        icon:"flaticon-chicken-wings",
+        heading:"Chuck Roast",
+        description:"We provide well shaped fresh and the organic meat from our farm very hygienic well"
+    }
+]
