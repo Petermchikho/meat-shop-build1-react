@@ -1,7 +1,7 @@
 import './index.css';
 import './flaticon.css';
 import './bootstrap-icons.css'
-import {BrowserRouter,Routes,Route} from "react-router-dom"
+import {HashRouter,Routes,Route} from "react-router-dom"
 import Layout from "./components/Layout"
 import Home from "./pages/Home"
 import About from "./pages/About"
@@ -11,7 +11,7 @@ import Pages from "./pages/Pages"
 import Products from "./pages/Products"
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter >
       <Routes>
         <Route path="/" element={<Layout />}>
            <Route index element={<Home />} />
@@ -22,7 +22,7 @@ function App() {
            <Route path="contact" element={<Contact />} />
         </Route> 
       </Routes>
-    </BrowserRouter>
+    </HashRouter >
       
   );
 }
