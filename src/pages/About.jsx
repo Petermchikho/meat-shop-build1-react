@@ -5,7 +5,7 @@ import Shape from "../assets/images/product_shape01.png"
 import Tshape from "../assets/images/title_shape.png"
 import {AboutData} from "../Data/Data"
 import AboutWhy from "../components/AboutComponents/AboutWhy"
-import {Link} from "react-router-dom"
+import HeroGeneral from "../components/HeroGeneral"
 export default function About(){
     const [data,setData] = React.useState([])
 
@@ -25,24 +25,9 @@ export default function About(){
     return(
         <>
         <main id="about">
-            <section class="hero section-padding">
-                <div class="about-hero-content">
-                    <h3>
-                        About us
-                    </h3>
-                    <div class="home-link">
-                        <Link to="/">
-                            Home
-                        </Link>
-                        <p>about us</p>
-                    </div>
-
-                </div>
-            
-                
-
-            </section>
-            
+            <HeroGeneral
+             title="about us"
+            />
             <section class="organic-products about">
                 <div class="cool-shape">
                     <img src={Shape} alt="shape" />

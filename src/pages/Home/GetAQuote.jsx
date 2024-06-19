@@ -1,11 +1,12 @@
 import React from "react"
 import {Link} from "react-router-dom"
+import CTA from "../../assets/images/cta_icon.png"
 export default function GetAQuote(){
     return(
         <>
             <section className="get-a-quote">
                 <div className="quote-inner">
-                    <img src="assets/images/cta_icon.png" alt="" />
+                    <img src={CTA} alt="" />
                     <h3>Get a Free Quote</h3>
                     <div className="buttons-quotes">
                         <Link to="/products">

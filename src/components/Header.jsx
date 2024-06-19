@@ -2,9 +2,86 @@ import React from "react"
 import Logo from "../assets/images/logo.png"
 import {Link,NavLink} from "react-router-dom"
 export default function Header(){
+    const [scroll,setScroll] = React.useState(false)
+    const [show,setShow]=React.useState(false)
+    const headerScrolled = () => {
+        if (window.scrollY > 150) {
+          setScroll(true)
+          
+        } else {
+            setScroll(false)           
+        }
+      }
+    React.useEffect(()=>{
+        
+        window.addEventListener('load', headerScrolled);
+        document.addEventListener('scroll',headerScrolled);
+        return () => {
+            window.removeEventListener('load', headerScrolled);
+            document.removeEventListener('scroll', headerScrolled);
+        };
+
+    },[])
+    function navMobile(){
+        return(
+            setShow((prev)=>!prev)
+        )
+    }
+    const [nav,setNav]=React.useState({
+        nav1:false,
+        nav2:false,
+        nav3:false,
+        nav4:false,
+    })
+    function clickHandlerOne(){
+        setNav((prev)=>{
+                return{
+                    ...prev,
+                    nav1: !prev.nav1,
+                    nav2:false,
+                    nav3:false,
+                    nav4:false
+                }
+        })
+    }
+    function clickHandlerTwo(){
+        setNav((prev)=>{
+                return{
+                    ...prev,
+                    nav2: !prev.nav2,
+                    nav1:false,
+                    nav3:false,
+                    nav4:false
+                }
+        })
+    }
+    function clickHandlerThree(){
+        setNav((prev)=>{
+                return{
+                    ...prev,
+                    nav3: !prev.nav3,
+                    nav2:false,
+                    nav1:false,
+                    nav4:false
+                }
+        })
+
+    }
+    function clickHandlerFour(){
+        setNav((prev)=>{
+                return{
+                    ...prev,
+                    nav4: !prev.nav4,
+                    nav2:false,
+                    nav1:false,
+                    nav3:false
+                }
+        })
+
+    }
     return(
         <>
-          <header id="header" >
+          <header id="header" className={`${scroll ? "header-scrolled" : " "}`} >
             <div className="top-nav">
                 <div className="top-nav-left">
 
@@ -157,30 +234,31 @@ export default function Header(){
                             +265 998671706
                         </button>
                     </div>
-                    <div className="nav-opener">
+                    <div className="nav-opener" onClick={navMobile}>
                         <i className="bi bi-list" id="open-nav"></i>
                     </div>
 
                 </div>
 
             </nav>
-            <div className="mobile-nav">
-                <div className="nav-container">
+            <div className={`mobile-nav ${show ? "show" : ""}`}>
+                <div className="transparent" onClick={navMobile}></div>
+                <div className="nav-container" >
                     <div className="logo-close">
                         <img src="assets/images/logo.png" alt="" />
-                        <i className="bi bi-x" id="close-nav">
+                        <i className="bi bi-x" id="close-nav" onClick={navMobile}>
 
                         </i>
                     </div>
                     <div className="mobile-links">
                         <ul className="mobile-nav-links">
                             <li className="mobile-nav-link-main drop-down-main active">
-                                <NavLink to="/"  className="mobile-main-link">HOME
+                                <NavLink to="/"  className="mobile-main-link" onClick={clickHandlerOne}>HOME
                                     <div className="drop-down">
                                         <i className="bi bi-chevron-down"></i>
                                     </div>
                                 </NavLink>
-                                <ul className="mobile-nav-link-minor">
+                                <ul className={`mobile-nav-link-minor ${nav.nav1 ? "show" : " "}`}>
                                     <li><NavLink to="/">HOME ONE</NavLink></li>
                                     <li><NavLink to="/">HOME TWO</NavLink></li>
                                     <li><NavLink to="/">HOME THREE</NavLink></li>
@@ -192,35 +270,35 @@ export default function Header(){
                                 </NavLink>
                             </li>
                             <li className="mobile-nav-link-main drop-down-main">
-                                <NavLink  to="/products" className="mobile-main-link">PRODUCTS
+                                <NavLink  to="/products" className="mobile-main-link" onClick={clickHandlerTwo}>PRODUCTS
                                     <div className="drop-down">
                                         <i className="bi bi-chevron-down"></i>
                                     </div>
                                 </NavLink>
-                                <ul className="mobile-nav-link-minor">
+                                <ul className={`mobile-nav-link-minor ${nav.nav2 ? "show" : " "}`}>
                                     <li><NavLink to="/products" >SHOP ONE</NavLink></li>
                                     <li><NavLink to="/products" >SHOP TWO</NavLink></li>
                                     <li><NavLink to="/products" >SHOP DETAILS</NavLink></li>
                                 </ul>
                             </li>
                             <li className="mobile-nav-link-main drop-down-main">
-                                <NavLink to="/blogs" className="mobile-main-link">BLOG
+                                <NavLink to="/blogs" className="mobile-main-link" onClick={clickHandlerThree}>BLOG
                                     <div className="drop-down">
                                         <i className="bi bi-chevron-down"></i>
                                     </div>
                                 </NavLink>
-                                <ul className="mobile-nav-link-minor">
+                                <ul className={`mobile-nav-link-minor ${nav.nav3 ? "show" : " "}`}>
                                     <li><NavLink to="/blogs">OUR BLOGS</NavLink></li>
                                     <li><NavLink to="/blogs">BLOG DETAILS</NavLink></li>
                                 </ul>
                             </li>
                             <li className="mobile-nav-link-main drop-down-main">
-                                <NavLink to="/pages" className="mobile-main-link">PAGES
+                                <NavLink to="/pages" className="mobile-main-link" onClick={clickHandlerFour}>PAGES
                                     <div className="drop-down">
                                         <i className="bi bi-chevron-down"></i>
                                     </div>
                                 </NavLink>
-                                <ul className="mobile-nav-link-minor">
+                                <ul className={`mobile-nav-link-minor ${nav.nav4 ? "show" : " "}`}>
                                     <li><NavLink to="/pages">SERVICES PAGE</NavLink></li>
                                     <li><NavLink to="/pages">SERVICES DETAILS</NavLink></li>
                                     <li><NavLink to="/pages">TEAM DETAILS</NavLink></li>

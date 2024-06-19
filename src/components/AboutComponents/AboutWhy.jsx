@@ -15,7 +15,7 @@ export default function AboutWhy(props){
                     <p class="heading">
                         {props.heading}
                     </p>
-                    <p class="paragraph">A{props.decription}</p>
+                    <p class="paragraph">{props.description}</p>
                     <Link to="/blogs">Learn More</Link>
 
                 </div>

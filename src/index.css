@@ -759,7 +759,13 @@ ul li ul li a.active span{
 		bottom: 0;
 		right:0;
 		display:flex;
-		flex-direction: row-reverse;
+		flex-direction: row;
+	}
+	.mobile-nav .transparent{
+		flex:1;
+		cursor:pointer;
+		height:100%;
+		max-height: 100%;
 	}
 	.mobile-nav.show .nav-container{
 		width:300px;
@@ -905,7 +911,7 @@ ul li ul li a.active span{
 		opacity: 0;
 		transition: all 0.3;
 	}
-	li.show .mobile-nav-link-minor{
+	li .mobile-nav-link-minor.show{
 		display: flex;
 		flex-direction: column;
 		height:auto;
@@ -2229,11 +2235,11 @@ ul li ul li a.active span{
 	border: none;
 	background:var(--color-red);
   }
-  #to-top i{
+  .to-top i{
 	-webkit-text-stroke: 1.5px;
 	font-size: 12px;
   }
-  #to-top::after {
+  .to-top::after {
 	position: absolute;
 	z-index: -1;
 	content: '';
@@ -2244,7 +2250,7 @@ ul li ul li a.active span{
 	opacity: 1;
 	background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 80%);
   }
-  #to-top.open{
+  .to-top.open{
 	bottom: 30px;
   }
 
