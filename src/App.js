@@ -8,7 +8,8 @@ import About from "./pages/About"
 import Blogs from "./pages/Blogs"
 import Contact from "./pages/Contact"
 import Pages from "./pages/Pages"
-import Products from "./pages/Products"
+import ShopOne from "./pages/ShopOne"
+import ShopDetail from "./pages/ShopDetail"
 function App() {
   return (
     <HashRouter >
@@ -16,7 +17,8 @@ function App() {
         <Route path="/" element={<Layout />}>
            <Route index element={<Home />} />
            <Route path="about" element={<About />} />
-           <Route path="products" element={<Products />} />
+           <Route path="products" element={<ShopOne />} />
+           <Route path="products/:id" element={<ShopDetail />} />
            <Route path="blogs" element={<Blogs />} />
            <Route path="pages" element={<Pages />} />
            <Route path="contact" element={<Contact />} />

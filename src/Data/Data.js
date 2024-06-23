@@ -4,7 +4,7 @@ export const FeatureData = [
         id:1,
         title:"frieza products",
         grabber:"sunday Limited Offer",
-        description:"make a purchase from you during",
+        description:"make a purchase from us.",
         price:"$12.00",
         image:"https://2024-petermchikho.netlify.app/build-1/assets/images/features_img01.png"
     },
@@ -12,7 +12,7 @@ export const FeatureData = [
         id:2,
         title:"only chicken",
         grabber:"flash sale Limited Offer",
-        description:"make a purchase from you during",
+        description:"make a purchase from us.",
         price:"$12.00",
         image:"https://2024-petermchikho.netlify.app/build-1/assets/images/features_img02.png"
         
@@ -142,3 +142,121 @@ export const AboutData=[
         description:"We provide well shaped fresh and the organic meat from our farm very hygienic well"
     }
 ]
+
+export const MarketData=[{
+    id:1,
+    new:true,
+    name:"proast chicken",
+    category:"organic",
+    price:2000,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product01.png"
+
+},{
+    id:2,
+    new:true,
+    name:"processed meat",
+    category:"organic",
+    price:2500,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product02.png"
+
+},
+{
+    id:3,
+    new:true,
+    name:"processed meat",
+    category:"Venison meat",
+    price:2500,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product03.png"
+
+},
+{
+    id:4,
+    new:true,
+    name:"proast chicken",
+    category:"organic",
+    price:2000,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product04.png"
+
+},{
+    id:5,
+    new:true,
+    name:"processed meat",
+    category:"organic",
+    price:2500,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product05.png"
+
+},
+{
+    id:6,
+    new:true,
+    name:"processed meat",
+    category:"Venison meat",
+    price:2500,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product06.png"
+
+},
+{
+    id:7,
+    new:true,
+    name:"processed meat",
+    category:"Venison meat",
+    price:2500,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product07.png"
+
+},
+{
+    id:8,
+    new:true,
+    name:"proast chicken",
+    category:"organic",
+    price:2000,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product08.png"
+
+},{
+    id:9,
+    new:true,
+    name:"processed meat",
+    category:"organic",
+    price:2500,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product09.png"
+
+}
+,
+{
+    id:10,
+    new:true,
+    name:"processed meat",
+    category:"Venison meat",
+    price:2500,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product10.png"
+
+},
+{
+    id:11,
+    new:true,
+    name:"proast chicken",
+    category:"organic",
+    price:2000,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product11.png"
+
+},{
+    id:12,
+    new:true,
+    name:"processed meat",
+    category:"organic",
+    price:2500,
+    amount:0,
+    image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product12.png"
+
+},]

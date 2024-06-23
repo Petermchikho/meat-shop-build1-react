@@ -69,7 +69,7 @@ export default function FAQ(){
                     <div className="question-answer">
                         <div className="question" onClick={clickHandlerOne}>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur.
+                                Who produces your meat?
                             </p>
                             <span>
                                 <i className={`bi bi-${question.question1 ? "chevron-up" :"chevron-down"}`}>
@@ -81,8 +81,8 @@ export default function FAQ(){
                             question.question1 ? 
                             <div className="answer">
                                 <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Sequi assumenda odio sit quibusdam. Explicabo, quas!
+                                    Our animals are rared on our personal farms ,taken care to the 
+                                    fullest to insure they are disease free.
                                 </p>
                             </div>:" "
 
@@ -93,7 +93,7 @@ export default function FAQ(){
                     <div className="question-answer">
                         <div className="question" onClick={clickHandlerTwo}>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur.
+                                Where is your shop located?
                             </p>
                             <span>
                                 <i className={`bi bi-${question.question2 ? "chevron-up" :"chevron-down"}`}>
@@ -105,8 +105,7 @@ export default function FAQ(){
                             question.question2 ? 
                             <div className="answer">
                                 <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Sequi assumenda odio sit quibusdam. Explicabo, quas!
+                                    Our meat shop is located in Lilongwe Area 24 close to the bus stage.
                                 </p>
                             </div>:" "
 
@@ -117,7 +116,7 @@ export default function FAQ(){
                     <div className="question-answer">
                         <div className="question" onClick={clickHandlerThree}>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur.
+                                At what time are you open?
                             </p>
                             <span>
                                 <i className={`bi bi-${question.question3 ? "chevron-up" :"chevron-down"}`}>
@@ -129,8 +128,7 @@ export default function FAQ(){
                             question.question3 ? 
                             <div className="answer">
                                 <p>
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Sequi assumenda odio sit quibusdam. Explicabo, quas!
+                                    Our shops are open from 6 am to 6pm 7 days a week.
                                 </p>
                             </div>:" "
 

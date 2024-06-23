@@ -1,7 +1,13 @@
 import React from "react"
+import HeroGeneral from "../components/HeroGeneral"
 
 export default function Pages(){
     return(
-        <h3>Pages page</h3>
+        <div id="about">
+        <HeroGeneral
+             title="services"
+        />
+        
+        </div>
     )
 }

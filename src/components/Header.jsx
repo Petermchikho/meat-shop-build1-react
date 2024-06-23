@@ -108,7 +108,7 @@ export default function Header(){
                                 </i>
                             </div>
                             <div className="top-nav-email-text">
-                                <Link to="https://www.google.com" >
+                                <Link to="mailto:petercharlesmchikho1@gmail.com" >
                                     petercharlesmchikho1@gmail.com
                                 </Link>
                             </div>
@@ -181,11 +181,7 @@ export default function Header(){
                         </li>
                         <li className="nav-link-main">
                             <NavLink to="/products" className={({isActive})=> isActive ? "main-link active" :"main-link"}>PRODUCTS</NavLink>
-                            <ul className="nav-link-minor">
-                                <li><span></span><NavLink to="products" className={({isActive})=> isActive ? "active" : ""}>SHOP ONE</NavLink></li>
-                                <li><span></span><NavLink to="products" className={({isActive})=> isActive ? "active" : ""}>SHOP TWO</NavLink></li>
-                                <li><span></span><NavLink to="products" className={({isActive})=> isActive ? "active" : ""}>SHOP DETAILS</NavLink></li>
-                            </ul>
+                            
                         </li>
                         <li className="nav-link-main">
                             <NavLink to="/blogs" className="main-link">BLOG</NavLink>
@@ -229,11 +225,11 @@ export default function Header(){
                         </div>
 
                     </div>
-                    <div className="search-contact-contact">
+                    <Link to="tel:0998671706" className="search-contact-contact">
                         <button>
                             +265 998671706
                         </button>
-                    </div>
+                    </Link>
                     <div className="nav-opener" onClick={navMobile}>
                         <i className="bi bi-list" id="open-nav"></i>
                     </div>
@@ -271,15 +267,8 @@ export default function Header(){
                             </li>
                             <li className="mobile-nav-link-main drop-down-main">
                                 <NavLink  to="/products" className="mobile-main-link" onClick={clickHandlerTwo}>PRODUCTS
-                                    <div className="drop-down">
-                                        <i className="bi bi-chevron-down"></i>
-                                    </div>
                                 </NavLink>
-                                <ul className={`mobile-nav-link-minor ${nav.nav2 ? "show" : " "}`}>
-                                    <li><NavLink to="/products" >SHOP ONE</NavLink></li>
-                                    <li><NavLink to="/products" >SHOP TWO</NavLink></li>
-                                    <li><NavLink to="/products" >SHOP DETAILS</NavLink></li>
-                                </ul>
+                                
                             </li>
                             <li className="mobile-nav-link-main drop-down-main">
                                 <NavLink to="/blogs" className="mobile-main-link" onClick={clickHandlerThree}>BLOG

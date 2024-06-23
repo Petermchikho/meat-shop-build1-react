@@ -1,11 +1,11 @@
 import React from "react"
 import HeroGeneral from "../components/HeroGeneral"
 
-export default function Pages(){
+export default function ShopDetail(){
     return(
         <div id="about">
         <HeroGeneral
-             title="contact us"
+             title="product name"
         />
         
         </div>
