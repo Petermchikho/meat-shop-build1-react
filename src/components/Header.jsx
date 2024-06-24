@@ -39,8 +39,7 @@ export default function Header(){
                     ...prev,
                     nav1: !prev.nav1,
                     nav2:false,
-                    nav3:false,
-                    nav4:false
+                    
                 }
         })
     }
@@ -50,35 +49,10 @@ export default function Header(){
                     ...prev,
                     nav2: !prev.nav2,
                     nav1:false,
-                    nav3:false,
-                    nav4:false
                 }
         })
     }
-    function clickHandlerThree(){
-        setNav((prev)=>{
-                return{
-                    ...prev,
-                    nav3: !prev.nav3,
-                    nav2:false,
-                    nav1:false,
-                    nav4:false
-                }
-        })
-
-    }
-    function clickHandlerFour(){
-        setNav((prev)=>{
-                return{
-                    ...prev,
-                    nav4: !prev.nav4,
-                    nav2:false,
-                    nav1:false,
-                    nav3:false
-                }
-        })
-
-    }
+    
     return(
         <>
           <header id="header" className={`${scroll ? "header-scrolled" : " "}`} >
@@ -249,7 +223,7 @@ export default function Header(){
                     <div className="mobile-links">
                         <ul className="mobile-nav-links">
                             <li className="mobile-nav-link-main drop-down-main active">
-                                <NavLink to="/"  className="mobile-main-link" onClick={clickHandlerOne}>HOME
+                                <NavLink to="#"  className="mobile-main-link" onClick={clickHandlerOne}>HOME
                                     <div className="drop-down">
                                         <i className="bi bi-chevron-down"></i>
                                     </div>
@@ -266,28 +240,22 @@ export default function Header(){
                                 </NavLink>
                             </li>
                             <li className="mobile-nav-link-main drop-down-main">
-                                <NavLink  to="/products" className="mobile-main-link" onClick={clickHandlerTwo}>PRODUCTS
+                                <NavLink  to="/products" className="mobile-main-link">PRODUCTS
                                 </NavLink>
                                 
                             </li>
                             <li className="mobile-nav-link-main drop-down-main">
-                                <NavLink to="/blogs" className="mobile-main-link" onClick={clickHandlerThree}>BLOG
-                                    <div className="drop-down">
-                                        <i className="bi bi-chevron-down"></i>
-                                    </div>
+                                <NavLink to="/blogs" className="mobile-main-link" >BLOG
+                                    
                                 </NavLink>
-                                <ul className={`mobile-nav-link-minor ${nav.nav3 ? "show" : " "}`}>
-                                    <li><NavLink to="/blogs">OUR BLOGS</NavLink></li>
-                                    <li><NavLink to="/blogs">BLOG DETAILS</NavLink></li>
-                                </ul>
                             </li>
                             <li className="mobile-nav-link-main drop-down-main">
-                                <NavLink to="/pages" className="mobile-main-link" onClick={clickHandlerFour}>PAGES
+                                <NavLink to="#" className="mobile-main-link" onClick={clickHandlerTwo}>PAGES
                                     <div className="drop-down">
                                         <i className="bi bi-chevron-down"></i>
                                     </div>
                                 </NavLink>
-                                <ul className={`mobile-nav-link-minor ${nav.nav4 ? "show" : " "}`}>
+                                <ul className={`mobile-nav-link-minor ${nav.nav2 ? "show" : " "}`}>
                                     <li><NavLink to="/pages">SERVICES PAGE</NavLink></li>
                                     <li><NavLink to="/pages">SERVICES DETAILS</NavLink></li>
                                     <li><NavLink to="/pages">TEAM DETAILS</NavLink></li>

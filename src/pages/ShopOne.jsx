@@ -4,6 +4,11 @@ import {MarketData} from "../Data/Data"
 import ProductShop from "../components/ShopComponents/ProductShop"
 import Slider from "react-slider"
 import {Link,useSearchParams} from "react-router-dom"
+import LatestProducts from "../components/ShopComponents/LatestProducts"
+import IgImage1 from "../assets/images/s_insta_img01.jpg"
+import IgImage2 from "../assets/images/s_insta_img02.jpg"
+import IgImage3 from "../assets/images/s_insta_img03.jpg"
+import IgImage4 from "../assets/images/s_insta_img04.jpg"
 
 export default function ShopOne(){
     const MIN=1000;
@@ -47,6 +52,21 @@ export default function ShopOne(){
         })
 
     }
+    const Latestproducts=products.filter((product)=>{
+        return(product.id<4)
+    })
+    const LatestElements=Latestproducts.map((item)=>{
+        return(
+            <LatestProducts
+            key={item.id}
+            id={item.id}
+            image={item.image1}
+            name={item.name}
+            price={item.price}
+            
+            />
+        )
+    })
     const productsElements=displayedProducts.map((item)=>{
         return(
             <ProductShop 
@@ -214,63 +234,7 @@ export default function ShopOne(){
                             </div>
                         </div>
                         <div className="latest-products">
-                            <div className="latest-product">
-                                <div className="latest-product-image">
-                                    <img src="../assets/images/lp_img01.jpg" alt="" />
-
-                                </div>
-                                <div className="latest-product-info">
-                                    <div className="lp-name">
-                                        <p>
-                                            roast chicken
-                                        </p>
-                                    </div>
-                                    <div className="lp-price">
-                                        <p>
-                                            K2000
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="latest-product">
-                                <div className="latest-product-image">
-                                    <img src="../assets/images/lp_img02.jpg" alt="" />
-
-                                </div>
-                                <div className="latest-product-info">
-                                    <div className="lp-name">
-                                        <p>
-                                            roast chicken
-                                        </p>
-                                    </div>
-                                    <div className="lp-price">
-                                        <p>
-                                            K2000
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="latest-product">
-                                <div className="latest-product-image">
-                                    <img src="../assets/images/lp_img03.jpg" alt="" />
-
-                                </div>
-                                <div className="latest-product-info">
-                                    <div className="lp-name">
-                                        <p>
-                                            roast chicken
-                                        </p>
-                                    </div>
-                                    <div className="lp-price">
-                                        <p>
-                                            K2000
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </div>
+                            {LatestElements}
                         </div>
                         <div className="heading">
                             <p className="heading-market">
@@ -287,12 +251,12 @@ export default function ShopOne(){
                         </div>
                         <div className="ig-images">
                             <div className="ig-images-top">
-                                <img src="../assets/images/s_insta_img01.jpg" className="first" alt="" />
-                                <img src="../assets/images/s_insta_img02.jpg" className="second" alt="" />
+                                <img src={IgImage1} className="first" alt="" />
+                                <img src={IgImage2} className="second" alt="" />
                             </div>
                             <div className="ig-images-bottom">
-                                <img src="../assets/images/s_insta_img03.jpg" className="first" alt="" />
-                                <img src="../assets/images/s_insta_img04.jpg"className="second"  alt="" />
+                                <img src={IgImage3} className="first" alt="" />
+                                <img src={IgImage4} className="second"  alt="" />
                             </div>
 
                         </div>

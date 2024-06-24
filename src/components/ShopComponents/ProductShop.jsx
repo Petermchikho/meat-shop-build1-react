@@ -11,6 +11,9 @@ export default function ProductShop(props){
                         <span>{ props.new ? "New" : "super"}</span>
                         {props.new && <i className="bi bi-star-fill"></i>}
                     </div>
+                    <Link to={`/products/${props.id}`} className={`eye ${props.amount ? "show" :" "}`}>
+                           <i className="bi bi-eye"></i>
+                    </Link>
                     <Link to={`/products/${props.id}`} className="image">
                         <img src={props.image1} alt="" />
                     </Link >
