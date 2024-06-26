@@ -1,8 +1,9 @@
 import React from "react"
 import {Outlet} from "react-router-dom"
-import Header from "../components/Header"
-import Footer from "../components/Footer"
-import BackToTop from "../components/BackToTop"
+import Header from "./Header"
+import Footer from "./Footer"
+import BackToTop from "./BackToTop"
+import GoToTop from "./GoToTop"
 export default function Layout(){
     return(
         <div className="home-one">
@@ -12,6 +13,7 @@ export default function Layout(){
             </main>
             <BackToTop />
             <Footer />
+            <GoToTop />
         </div>
 
     )

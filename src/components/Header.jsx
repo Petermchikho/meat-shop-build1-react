@@ -1,7 +1,9 @@
 import React from "react"
 import Logo from "../assets/images/logo.png"
-import {Link,NavLink} from "react-router-dom"
+import {Link,NavLink,useLocation} from "react-router-dom"
+
 export default function Header(){
+    const { pathname } = useLocation();
     const [scroll,setScroll] = React.useState(false)
     const [show,setShow]=React.useState(false)
     const headerScrolled = () => {
@@ -13,7 +15,7 @@ export default function Header(){
         }
       }
     React.useEffect(()=>{
-        
+        setShow((prev)=>!prev);
         window.addEventListener('load', headerScrolled);
         document.addEventListener('scroll',headerScrolled);
         return () => {
@@ -21,7 +23,7 @@ export default function Header(){
             document.removeEventListener('scroll', headerScrolled);
         };
 
-    },[])
+    },[pathname])
     function navMobile(){
         return(
             setShow((prev)=>!prev)

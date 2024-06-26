@@ -752,6 +752,7 @@ ul li ul li.active span{
 @media screen and (max-width:1200px){
 	.mobile-nav.show{
 		background: rgba(0, 0, 0, 0.5);
+		min-height: 100vh;
 		position: fixed;
 		z-index: 1500;
 		top:0;
