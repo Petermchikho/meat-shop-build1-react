@@ -15,7 +15,7 @@ export default function Header(){
         }
       }
     React.useEffect(()=>{
-        setShow((prev)=>!prev);
+        setShow((prev)=> prev ? !prev : prev);
         window.addEventListener('load', headerScrolled);
         document.addEventListener('scroll',headerScrolled);
         return () => {
@@ -29,31 +29,11 @@ export default function Header(){
             setShow((prev)=>!prev)
         )
     }
-    const [nav,setNav]=React.useState({
-        nav1:false,
-        nav2:false,
-        nav3:false,
-        nav4:false,
-    })
+    const [navInner,setNav]=React.useState(false)
     function clickHandlerOne(){
-        setNav((prev)=>{
-                return{
-                    ...prev,
-                    nav1: !prev.nav1,
-                    nav2:false,
-                    
-                }
-        })
+        setNav((prev)=>!prev)
     }
-    function clickHandlerTwo(){
-        setNav((prev)=>{
-                return{
-                    ...prev,
-                    nav2: !prev.nav2,
-                    nav1:false,
-                }
-        })
-    }
+    
     
     return(
         <>
@@ -146,11 +126,7 @@ export default function Header(){
                     <ul className="nav-links">
                         <li className="nav-link-main active">
                             <NavLink to="/"  className={({isActive})=> isActive ? "main-link active" :"main-link"}>HOME</NavLink>
-                            <ul className="nav-link-minor active">
-                                <li className="active"><span></span><NavLink to="/"  className={({isActive})=> isActive ? "active" : ""}>HOME ONE</NavLink></li>
-                                <li><span></span><NavLink to="/" className={({isActive})=> isActive ? "active" : ""}>HOME TWO</NavLink></li>
-                                <li><span></span><NavLink to="/" className={({isActive})=> isActive ? "active" : ""}>HOME THREE</NavLink></li>
-                            </ul>
+                            
                         </li>
                         <li className="nav-link-main">
                             <NavLink to="/about" className={({isActive})=> isActive ? "main-link active" :"main-link"}>ABOUT US</NavLink>
@@ -225,16 +201,10 @@ export default function Header(){
                     <div className="mobile-links">
                         <ul className="mobile-nav-links">
                             <li className="mobile-nav-link-main drop-down-main active">
-                                <NavLink to="#"  className="mobile-main-link" onClick={clickHandlerOne}>HOME
-                                    <div className="drop-down">
-                                        <i className="bi bi-chevron-down"></i>
-                                    </div>
+                                <NavLink to="#"  className="mobile-main-link">HOME
+                                    
                                 </NavLink>
-                                <ul className={`mobile-nav-link-minor ${nav.nav1 ? "show" : " "}`}>
-                                    <li><NavLink to="/">HOME ONE</NavLink></li>
-                                    <li><NavLink to="/">HOME TWO</NavLink></li>
-                                    <li><NavLink to="/">HOME THREE</NavLink></li>
-                                </ul>
+                                
                             </li>
                             <li className="mobile-nav-link-main">
                                 <NavLink to="/about" className="mobile-main-link">ABOUT US
@@ -252,12 +222,12 @@ export default function Header(){
                                 </NavLink>
                             </li>
                             <li className="mobile-nav-link-main drop-down-main">
-                                <NavLink to="#" className="mobile-main-link" onClick={clickHandlerTwo}>PAGES
+                                <NavLink to="#" className="mobile-main-link" onClick={clickHandlerOne}>PAGES
                                     <div className="drop-down">
                                         <i className="bi bi-chevron-down"></i>
                                     </div>
                                 </NavLink>
-                                <ul className={`mobile-nav-link-minor ${nav.nav2 ? "show" : " "}`}>
+                                <ul className={`mobile-nav-link-minor ${navInner ? "show" : " "}`}>
                                     <li><NavLink to="/pages">SERVICES PAGE</NavLink></li>
                                     <li><NavLink to="/pages">SERVICES DETAILS</NavLink></li>
                                     <li><NavLink to="/pages">TEAM DETAILS</NavLink></li>

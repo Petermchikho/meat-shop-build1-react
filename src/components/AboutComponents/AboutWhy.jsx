@@ -6,9 +6,11 @@ export default function AboutWhy(props){
         <>
         <div class="why-choose-container" key={props.id}>
             <div class="why-choose-content">
-                <div class="icon-holder">
-                    <i class={props.icon}></i>
-                    
+                <div className="icon-holder-container">
+                        <div class="icon-holder">
+                            <i class={props.icon}></i>
+                            
+                        </div>
                 </div>
                 <div class="image-text-detail">
                     <img src={Line} alt="" />

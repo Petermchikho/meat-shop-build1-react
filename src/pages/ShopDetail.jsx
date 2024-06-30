@@ -1,7 +1,6 @@
 import React , { useRef, useState } from "react"
 import HeroGeneral from "../components/HeroGeneral"
-import {useParams} from "react-router-dom"
-import {MarketData} from "../Data/Data"
+import {useLocation,NavLink,Link,Outlet,useLoaderData,useOutletContext,Await} from "react-router-dom"
 import ProductShop from "../components/ShopComponents/ProductShop"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -16,35 +15,89 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { FreeMode, Navigation, Thumbs ,Pagination , Autoplay} from 'swiper/modules';
+import {getProducts} from "../api"
+import {requireAuth} from "../utils"
 
+export async function loader({params,request}){
+  await requireAuth(request)
+  return getProducts(params.id)
+}
 
 export default function ShopDetail(){
-    const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const params=useParams()
-    const [products,setProducts]=React.useState(MarketData)
-    const product=products.filter((item)=>{
-        return(item.id===(parseInt(params.id)))
-    })
-    function addition(id){
-        setProducts((prev)=>{
-            return prev.map((item)=>{
-                return (item.id === id ?{...item,amount:item.amount +1} : item)
-            })
-        })
-    }
-    function subtract(id){
-        setProducts((prev)=>{
-            return prev.map((item)=>{
-                return (item.id === id && item.amount>0 ?{...item,amount:item.amount -1} : item)
-            })
-        })
+    const dataProduct=useLoaderData()
+    const {allProducts}=useOutletContext()
+    const [products,setProducts]=React.useState([])
+    const [product,setProduct]=React.useState(dataProduct)
+    const [timerDays,setTimerDays] = useState("00");
+    const [timerHours,setTimerHours] = useState("00");
+    const [timerMinutes,setTimerMinutes] = useState("00");
+    const [timerSeconds,setTimerSeconds] = useState("00");
+
+    let interval = useRef();
+    const startTimer=()=>{
+      const countDownDate =new Date("Jul 30, 2024 00:00:00").getTime();
+      interval=setInterval(() => {
+          const now =new Date().getTime();
+          const distance = countDownDate - now
+          const days =Math.floor(distance / (1000* 60 * 60 * 24));
+          const hours =Math.floor((distance % (1000* 60 * 60 * 24))/ (1000* 60 * 60 ));
+          const minutes =Math.floor((distance % (1000* 60 * 60))/ (1000* 60 ));
+          const seconds =Math.floor((distance % (1000* 60 ))/ (1000 ));
+          if(distance <0){
+              clearInterval(interval.current);
+          }else{
+            setTimerDays(days)
+            setTimerMinutes(minutes)
+            setTimerHours(hours)
+            setTimerSeconds(seconds)
+
+          }
+      }, 1000);
 
     }
+    React.useEffect(()=>{
+      startTimer();
+      return ()=>{
+        clearInterval(interval.current);
+      }
+
+    },[])
+
+    const [thumbsSwiper, setThumbsSwiper] = useState(null);
+    
+    
+    
+    
+    
+    const Location=useLocation();
+    const search= Location.state?.search || ""
+    const locationAmount=Location.state?.amount || 0
+    const [amount,setAmount]=React.useState(locationAmount)
+    function additionProduct(){
+      setAmount((prev)=>{
+          return prev+1
+      })
+  }
+  function subtractProduct(){
+      setAmount((prev)=>{
+          if(prev>0){
+            return prev-1 
+          }else{
+            return prev
+          }
+      })
+
+  }
     return(
         <div id="about">
         <HeroGeneral
-             title={`${product[0].name}`}
+             title="shop now"
         />
+        <section className="back-to-all-button">
+          <Link to={`..?${search}`} relative="path">
+           <button><i className="bi bi-arrow-left"></i>Back to all Products</button>
+          </Link>
+        </section>
         <section class="shop-details">
               <div class="shop-details-left">
                   <Swiper
@@ -59,13 +112,13 @@ export default function ShopDetail(){
                   className="mySwiper2 first"
                 >
                   <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                    <img src="https://2024-petermchikho.netlify.app/build-1/assets/images/shop_details01.jpg" />
                   </SwiperSlide>
                   <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                    <img src="https://2024-petermchikho.netlify.app/build-1/assets/images/shop_details02.jpg" />
                   </SwiperSlide>
                   <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                    <img src="https://2024-petermchikho.netlify.app/build-1/assets/images/shop_details03.jpg" />
                   </SwiperSlide>
                   
                   
@@ -80,20 +133,20 @@ export default function ShopDetail(){
                   className="mySwiper first"
                 >
                   <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                    <img src="https://2024-petermchikho.netlify.app/build-1/assets/images/shop_details01.jpg" />
                   </SwiperSlide>
                   <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                    <img src="https://2024-petermchikho.netlify.app/build-1/assets/images/shop_details02.jpg" />
                   </SwiperSlide>
                   <SwiperSlide>
-                    <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                    <img src="https://2024-petermchikho.netlify.app/build-1/assets/images/shop_details03.jpg" />
                   </SwiperSlide>
                   
                 </Swiper>
               </div>
               <div class="shop-details-right">
                 <h5>
-                    Necessary For Human Body
+                    {product.title}
                 </h5>
                 <div class="review-count">
                     <div class="review-stars">
@@ -102,12 +155,12 @@ export default function ShopDetail(){
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-fill"></i>
-                        <span>( 4 customer reviews)</span>
+                        <span>( {product.review} customer reviews)</span>
                     </div>
                 </div>
                 <div class="price-status">
                     <p class="price-details red">
-                        K 2500
+                        {product.price}
                     </p>
                     <p class="status">
                         - In stock
@@ -118,25 +171,25 @@ export default function ShopDetail(){
                     <div class="time-counter">
                         
                         <div class="info">
-                            <span class="info-first" id="days">00</span>
+                            <span class="info-first" id="days">{timerDays}</span>
                             <span>days</span>
                         </div>
                         <div class="info">
-                            <span class="info-first" id="hours">00</span>
+                            <span class="info-first" id="hours">{timerHours}</span>
                             <span>hours</span>
                         </div>
                         <div class="info">
-                            <span class="info-first" id="minutes">00</span>
+                            <span class="info-first" id="minutes">{timerMinutes}</span>
                             <span>mins</span>
                         </div>
                         <div class="info">
-                            <span class="info-first" id="seconds">00</span>
+                            <span class="info-first" id="seconds">{timerSeconds}</span>
                             <span>secs</span>
                         </div>
                     </div>
                 </div>
                 <div class="minor-details-sale">
-                    <p>Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh</p>
+                    <p>{product.description}</p>
                 </div>
                 <div class="minor-details-sale">
                     <p>Quantity :</p>
@@ -144,9 +197,9 @@ export default function ShopDetail(){
                 <div class="purchase-quantity">
                     <div class="quantity">
                         <div class="add-sub">
-                            <span class="subtract hover">-</span>
-                            <span class="border">0</span>
-                            <span class="add hover">+</span>
+                            <span class="subtract hover" onClick={subtractProduct}>-</span>
+                            <span class="border">{amount}</span>
+                            <span class="add hover" onClick={additionProduct}>+</span>
                         </div>
                         <div class="purchase-button">
                             <span>Purchase</span>
@@ -169,7 +222,7 @@ export default function ShopDetail(){
                         <span class="random-left"> SKU:
                         </span>
                         <span class="random-right">
-                            002  
+                            00{product.id}  
                         </span>
                     </div>
                     <div class="random">
@@ -177,7 +230,7 @@ export default function ShopDetail(){
                             CATEGORY:
                         </span>
                         <span class="random-right">
-                            lipstick
+                            {product.category}
                         </span>
                     </div>
 
@@ -187,36 +240,18 @@ export default function ShopDetail(){
         <section class="description-review">
             <div class="nav">
                 <div class="nav-elements">
-                    <a href="#description">
+                    <NavLink to="." end relative="path" className={({isActive})=>isActive ? "active" : ""}>
                         Description
-                    </a>
+                    </NavLink>
                     <span>-</span>
-                    <a href="#review">
+                    <NavLink to="review" relative="path" className={({isActive})=>isActive ? "active" : ""}>
                         Review(0)
-                    </a>
+                    </NavLink>
                 </div>
                 <div class="nav-line"></div>
                 <div class="nav-line"></div>
             </div>
-            <div class="show-content show" id="description-1">
-                <p>
-                    committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live.
-                </p>
-            </div>
-            <div class="show-content" id="review-1">
-                <h6>                  
-                 Customer Reviews (0)
-
-                </h6>
-                <p class="review">
-                    
-                 No reviews yet
-
-                </p>
-                <p class="write-review">
-                    write a review
-                </p>
-            </div>
+            <Outlet context={{product}}/>
             
         </section>
         <section class="related-products">
@@ -230,7 +265,31 @@ export default function ShopDetail(){
                 </h4>
                 <img src="../assets/images/title_shape.png" alt="" />
             </div>
-            <div class="related-slides ">
+            <React.Suspense fallback={<h3>loading....</h3>}>
+            
+              <Await resolve={allProducts.allProducts}>
+                {(allProducts)=>{
+                   if(products.length < 1){
+                        setProducts(allProducts)
+                    }
+                    function addition(id){
+                        setProducts((prev)=>{
+                            return prev.map((item)=>{
+                                return (item.id === id ?{...item,amount:item.amount +1} : item)
+                            })
+                        })
+                    }
+                    function subtract(id){
+                        setProducts((prev)=>{
+                            return prev.map((item)=>{
+                                return (item.id === id && item.amount>0 ?{...item,amount:item.amount -1} : item)
+                            })
+                        })
+                
+                    }
+                    
+                    return(
+                      <div class="related-slides ">
             <Swiper breakpoints={
                   {
                     // when window width is >= 594px
@@ -290,6 +349,14 @@ export default function ShopDetail(){
                 
 
             </div>
+                    )
+                    
+
+                  }}
+                </Await>
+  
+              </React.Suspense>
+            
         </section>
     
         
