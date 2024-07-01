@@ -9,7 +9,8 @@ import {
 import Layout from "./components/Layout"
 import Home from "./pages/Home"
 import About from "./pages/About"
-import Blogs from "./pages/Blogs"
+import Blogs,{loader as blogsLoader} from "./pages/Blogs"
+import BlogDetails,{loader as blogsDetailsLoader} from "./pages/BlogDetails"
 import Contact from "./pages/Contact"
 import Pages from "./pages/Pages"
 import Shop,{loader as shopLoader} from "./pages/Shop"
@@ -35,7 +36,8 @@ function App() {
                 <Route path="review" element={<ShopReviews />} loader={async ({request})=> await requireAuth(request)} />
               </Route>
            </Route>
-           <Route path="blogs" element={<Blogs />} />
+           <Route path="blogs" element={<Blogs />} loader={blogsLoader}/>
+           <Route path="blogs/:id" element={<BlogDetails />} loader={blogsDetailsLoader} />
            <Route path="pages" element={<Pages />} />
            <Route path="contact" element={<Contact />} />
            <Route path="login" 
