@@ -190,13 +190,14 @@ createServer({
             image:"https://2024-petermchikho.netlify.app/build-1/assets/images/blog_post03.jpg"
     
         })
-        server.create("user", { id: "123", email: "b@b.com", password: "peter", name: "peter" })
+        server.create("user", { id: "123", email: "b@b.com", password: "1234", name: "Peter" })
     },
 
     routes() {
         this.namespace = "api"
         this.logging = false
         this.timing = 2000
+        this.passthrough("https://api.emailjs.com/**")
 
         this.get("/products", (schema, request) => {
             //return new Response(400, {}, {error: "Error fetching data"})
@@ -234,5 +235,9 @@ createServer({
                 token: "Enjoy your pizza, here's your tokens."
             }
         })
+        this.post("https://api.emailjs.com/api/v1.0/email/send", (schema, request) => {
+            let attrs = JSON.parse(request.requestBody)
+            console.log(attrs)
+          })
     }
 })

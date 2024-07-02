@@ -1,4 +1,5 @@
-import React from "react"
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import HeroGeneral from "../components/HeroGeneral"
 import TeamImg from "../assets/images/team_info_thumb.png"
 import MemberIcon from "../assets/images/member_icon.png"
@@ -51,6 +52,34 @@ export default function TeamDetails(){
 
         )
     })
+    
+    const [formData,setFormData] = React.useState({
+        user_name:"",
+        user_email:"",
+        message:""
+    })
+    function handleChange(e){
+        setFormData((prev)=>{
+            return{...prev,[e.target.name]:e.target.value}
+        })
+    }
+    const templateParams={
+        user_name:formData.user_name,
+        user_email:formData.user_email,
+        message:formData.message,
+    }
+
+    const sendEmail = (e) => {
+      e.preventDefault();
+      emailjs.send('service_6exfebi','template_von0q7r',templateParams ,'56087UrGtktL_DNUu')
+        .then((response) => {
+            console.log('SUCCESS!',response);
+            e.target.reset();
+        })
+        .catch((error) => {
+            console.log('ooh well...', error);
+        });
+    };
     return(
         <div id="about">
             <HeroGeneral
@@ -146,24 +175,28 @@ export default function TeamDetails(){
                                 CHECK Home Enquiry
                             </h6>
                         </div>
-                        <form action="">
+                        <form onSubmit={sendEmail}>
+                            <p>{formData.user_name} {formData.user_email} {formData.message}</p>
                             <div class="input-label">
                                 <label for="">Your name*</label>
-                                <input type="text" />
+                                <input type="text"
+                                onChange={handleChange} value={formData.user_name} name="user_name"/>
                             </div>
                             <div class="input-label">
                                 <label for="">Your email*</label>
-                                <input type="email" />
+                                <input type="email"
+                                onChange={handleChange} value={formData.user_email} name="user_email" />
                             </div>
                             <div class="input-label">
                                 <label for="">Your number*</label>
-                                <input type="number" />
+                                <input type="number"  />
                             </div>
                             <div class="input-label">
                                 <label for="">Your Enquiry*</label>
-                                <textarea name="" id="" />
+                                <textarea id=""
+                                onChange={handleChange} value={formData.message} name="message" />
                             </div>
-                            <label for=""><input type="checkbox" name="" id="" /> i agree with term of privacy</label>
+                            <label for=""><input type="checkbox"  id="" /> i agree with term of privacy</label>
                             <button>
                                 Submit Enquiry
                             </button>
