@@ -165,10 +165,10 @@ export default function Header(){
                     </div>
                     <div className="search-contact-icons">
                         <div className="search-icon">
-                            <i className="bi bi-search"></i>
+                            <i className="flaticon-search"></i>
                         </div>
                         <div className="basket-icon">
-                            <i className="bi bi-basket2-fill">
+                            <i className="flaticon-shopping-basket">
 
                             </i>
                             <span className="counter">
@@ -263,10 +263,10 @@ export default function Header(){
                     </div>
                     <div className="search-contact-icons">
                         <div className="search-icon">
-                            <i className="bi bi-search"></i>
+                            <i className="flaticon-search"></i>
                         </div>
                         <div className="basket-icon">
-                            <i className="bi bi-basket2-fill">
+                            <i className="flaticon-shopping-basket">
 
                             </i>
                             <span className="counter">
