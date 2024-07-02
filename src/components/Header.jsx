@@ -137,10 +137,6 @@ export default function Header(){
                         </li>
                         <li className="nav-link-main">
                             <NavLink to="/blogs" className="main-link">BLOG</NavLink>
-                            <ul className="nav-link-minor">
-                                <li><span></span><NavLink to="/blogs" className={({isActive})=> isActive ? "active" : ""}>OUR BLOGS</NavLink></li>
-                                <li><span></span><NavLink to="/blogs" className={({isActive})=> isActive ? "active" : ""}>BLOG DETAILS</NavLink></li>
-                            </ul>
                         </li>
                         <li className="nav-link-main">
                             <NavLink to="/pages" className={({isActive})=> isActive ? "main-link active" :"main-link"}>
@@ -148,12 +144,16 @@ export default function Header(){
                             </NavLink>
                             <ul className="nav-link-minor">
                                 <li><span></span><NavLink to="/pages" className={({isActive})=> isActive ? "active" : ""}>SERVICES PAGE</NavLink></li>
-                                <li><span></span><NavLink to="/pages" className={({isActive})=> isActive ? "active" : ""}>SERVICES DETAILS</NavLink></li>
-                                <li><span></span><NavLink to="/pages" className={({isActive})=> isActive ? "active" : ""}>TEAM DETAILS</NavLink></li>
+                                <li><span></span><NavLink to="/pages/details" className={({isActive})=> isActive ? "active" : ""}>SERVICES DETAILS</NavLink></li>
+                                <li><span></span><NavLink to="/pages/team" className={({isActive})=> isActive ? "active" : ""}>TEAM DETAILS</NavLink></li>
+                                <li><span></span><NavLink to="/pages/team/nothing" className={({isActive})=> isActive ? "active" : ""}>404 PAGE</NavLink></li>
                             </ul>
                         </li>
                         <li className="nav-link-main">
                             <NavLink to="/contact" className={({isActive})=> isActive ? "main-link active" :"main-link"}>CONTACT</NavLink>
+                        </li>
+                        <li className="nav-link-main">
+                            <NavLink to="/login" className={({isActive})=> isActive ? "main-link active" :"main-link"}>LOGIN</NavLink>
                         </li>
                     </ul>
 
@@ -229,12 +229,18 @@ export default function Header(){
                                 </NavLink>
                                 <ul className={`mobile-nav-link-minor ${navInner ? "show" : " "}`}>
                                     <li><NavLink to="/pages">SERVICES PAGE</NavLink></li>
-                                    <li><NavLink to="/pages">SERVICES DETAILS</NavLink></li>
-                                    <li><NavLink to="/pages">TEAM DETAILS</NavLink></li>
+                                    <li><NavLink to="/pages/details">SERVICES DETAILS</NavLink></li>
+                                    <li><NavLink to="/pages/team">TEAM DETAILS</NavLink></li>
+                                    <li><NavLink to="/pages/team/nothing">404 PAGE</NavLink></li>
                                 </ul>
                             </li>
                             <li className="mobile-nav-link-main ">
                                 <NavLink to="/contact" className="mobile-main-link border-bottom">CONTACT
+                                    
+                                </NavLink>
+                            </li>
+                            <li className="mobile-nav-link-main ">
+                                <NavLink to="/login" className="mobile-main-link border-bottom">LOGIN
                                     
                                 </NavLink>
                             </li>

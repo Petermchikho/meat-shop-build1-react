@@ -13,7 +13,9 @@ import Blogs,{loader as blogsLoader} from "./pages/Blogs"
 import BlogDetails,{loader as blogsDetailsLoader} from "./pages/BlogDetails"
 import Contact from "./pages/Contact"
 import Pages from "./pages/Pages"
+import ServicesDetails from "./pages/ServicesDetails"
 import Shop,{loader as shopLoader} from "./pages/Shop"
+import TeamDetails,{loader as teamLoader} from "./pages/TeamDetails"
 import ShopOne from "./pages/ShopOne"
 import ShopDetail,{loader as shopDetailLoader} from "./pages/ShopDetail"
 import ShopDescription from "./pages/Shop/ShopDescription"
@@ -39,6 +41,8 @@ function App() {
            <Route path="blogs" element={<Blogs />} loader={blogsLoader}/>
            <Route path="blogs/:id" element={<BlogDetails />} loader={blogsDetailsLoader} />
            <Route path="pages" element={<Pages />} />
+           <Route path='pages/details' element={<ServicesDetails />} />
+           <Route path='pages/team' element={<TeamDetails />} loader={teamLoader}/>
            <Route path="contact" element={<Contact />} />
            <Route path="login" 
            element={<Login />} 

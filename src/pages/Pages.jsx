@@ -5,6 +5,13 @@ import FAQ from "../components/FAQ"
 import Shape1 from "../assets/images/about_shape01.png"
 import Shape2 from "../assets/images/about_shape02.png"
 import {Link} from "react-router-dom"
+import MeatType from "../components/PagesComponents/MeatType"
+import Services from "../components/PagesComponents/Services"
+import Meat1 from "../assets/images/cat_icon01.png"
+import Meat2 from "../assets/images/cat_icon02.png"
+import Meat3 from "../assets/images/cat_icon03.png"
+import Meat4 from "../assets/images/cat_icon04.png"
+import AboutIcon from "../assets/images/about_icon.png"
 export default function Pages(){
     return(
         <div id="about">
@@ -35,51 +42,26 @@ export default function Pages(){
 
                         </div>
                         <div class="services-top-details-right">
-                            <div class="services-container-holder">
-                                <div class="services-container-round">
-                                    <div class="services-container-round-inner">
-                                        <img src="../assets/images/cat_icon01.png" alt=""/>
-                                        
-                                    </div>
-                                    
-                
-                                </div>
-                                <p>Duck Meat</p>
-                            </div>
-                            <div class="services-container-holder">
-                                <div class="services-container-round">
-                                    <div class="services-container-round-inner">
-                                        <img src="../assets/images/cat_icon02.png" alt="" />
-                                        
-                                    </div>
-                                    
-                
-                                </div>
-                                <p>Duck Meat</p>
-                            </div>
-                            <div class="services-container-holder">
-                                <div class="services-container-round">
-                                    <div class="services-container-round-inner">
-                                        <img src="../assets/images/cat_icon03.png" alt="" />
-                                        
-                                    </div>
-                                    
-                
-                                </div>
-                                <p>Duck Meat</p>
-                            </div>
-                            <div class="services-container-holder">
-                                <div class="services-container-round">
-                                    <div class="services-container-round-inner">
-                                        <img src="../assets/images/cat_icon04.png" alt="" />
-                                        
-                                    </div>
-                                    
-                
-                                </div>
-                                <p>Duck Meat</p>
-                            </div>
+                            <MeatType 
+                            image={Meat1}
+                            name="Duck Meat"
                             
+                            />
+                            <MeatType 
+                            image={Meat2}
+                            name="Chicken Meat"
+                            
+                            />
+                            <MeatType 
+                            image={Meat3}
+                            name="Horse Meat"
+                            
+                            />
+                           <MeatType 
+                            image={Meat4}
+                            name="Sheep Meat"
+                            
+                            />
                             
                         </div>
 
@@ -107,7 +89,7 @@ export default function Pages(){
                     <div class="paragraph">
                         <p>We provide well shaped fresh and organic meat from our farm very hygienic way.</p>
                     </div>
-                    <p class="bolder"><img src="../assets/images/about_icon.png" alt=""/>Shaped fresh and organic meat our farm</p>
+                    <p class="bolder"><img src={AboutIcon} alt=""/>Shaped fresh and organic meat our farm</p>
                     <div class="time-icon">
                         <div class="icon">
                             <i class="flaticon-gift-1">
@@ -124,94 +106,31 @@ export default function Pages(){
 
                 </div>
                 <div class="our-services-right">
-                    <div class="services-box">
-                        <div class="services-box-top">
-                            <div class="icon-number">
-                                <i class="flaticon-online-shop">
-
-                                </i>
-                            </div>
-                            <div class="number">
-                                <span>
-                                    01
-                                </span>
-                            </div>
-                        </div>
-                        <div class="services-bottom-box">
-                            <p class="title">Organic Product
-
-                            </p>
-                            <div class="paragraph">
-                                <p>We provide well shaped fresh and the organic meat from</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="services-box">
-                        <div class="services-box-top">
-                            <div class="icon-number">
-                                <i class="flaticon-gift-1">
-
-                                </i>
-                            </div>
-                            <div class="number">
-                                <span>
-                                    02
-                                </span>
-                            </div>
-                        </div>
-                        <div class="services-bottom-box">
-                            <p class="title">Payment Secure
-
-                            </p>
-                            <div class="paragraph">
-                                <p>We provide well shaped fresh and the organic meat from</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="services-box">
-                        <div class="services-box-top">
-                            <div class="icon-number">
-                                <i class="flaticon-chicken-wings">
-
-                                </i>
-                            </div>
-                            <div class="number">
-                                <span>
-                                    03
-                                </span>
-                            </div>
-                        </div>
-                        <div class="services-bottom-box">
-                            <p class="title">100% Organic Meat
-
-                            </p>
-                            <div class="paragraph">
-                                <p>We provide well shaped fresh and the organic meat from</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="services-box">
-                        <div class="services-box-top">
-                            <div class="icon-number">
-                                <i class="flaticon-chicken">
-
-                                </i>
-                            </div>
-                            <div class="number">
-                                <span>
-                                    04
-                                </span>
-                            </div>
-                        </div>
-                        <div class="services-bottom-box">
-                            <p class="title">Organic Product
-
-                            </p>
-                            <div class="paragraph">
-                                <p>We provide well shaped fresh and the organic meat from</p>
-                            </div>
-                        </div>
-                    </div>
+                    <Services 
+                     icon="flaticon-online-shop"
+                     number="01"
+                     title="Organic Product"
+                     description="We provide well shaped fresh and the organic meat from"
+                    />
+                    <Services 
+                     icon="flaticon-gift-1"
+                     number="02"
+                     title="Payment Secure"
+                     description="We provide well shaped fresh and the organic meat from"
+                    />
+                    <Services 
+                     icon="flaticon-chicken-wings"
+                     number="03"
+                     title="100% Organic Meat"
+                     description="We provide well shaped fresh and the organic meat from"
+                    />
+                    <Services 
+                     icon="flaticon-chicken"
+                     number="04"
+                     title="Organic Product"
+                     description="We provide well shaped fresh and the organic meat from"
+                    />
+                    
 
                 </div>
 

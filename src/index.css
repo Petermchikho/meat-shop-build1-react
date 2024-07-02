@@ -2271,6 +2271,7 @@ swiper-container img{
     width: 100%;
     padding-top: 100px;
     min-height: 90vh;
+	height:auto;
     z-index: 1;
 	display: flex;
 	justify-content: center;
@@ -3497,8 +3498,8 @@ margin-right:3px;
 	background:var(--color-red);
 }
 .page-not-found{
-	
-	padding-bottom: 50px;
+	padding-top:50px;
+	padding-bottom: 10px;
 	display:flex;
 	align-items:center;
 	justify-content:center;
@@ -4769,4 +4770,74 @@ p.read-more-p{
 .blog-main .read-more a{
  display:flex;
  align-items:center;
+}
+
+.page-not-found{
+	width:60%;
+}
+.page-not-found form{
+	width:60%;
+	margin:0px auto;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-direction:column;
+}
+@media screen and (max-width:1200px){
+	.page-not-found{
+		width:70%;
+	}
+	.page-not-found form{
+		width:70%;
+	}
+}
+@media screen and (max-width:1000px){
+	.page-not-found{
+		width:80%;
+	}
+	.page-not-found form{
+		width:80%;
+	}
+}
+@media screen and (max-width:800px){
+	.page-not-found{
+		width:90%;
+	}
+	.page-not-found form{
+		width:90%;
+	}
+}
+@media screen and (max-width:600px){
+	.page-not-found{
+		width:100%;
+	}
+	.page-not-found form{
+		width:100%;
+	}
+}
+.page-not-found input{
+	width:100%;
+	padding:15px 20px;
+	margin-bottom:20px;
+	border:none;
+	font-size:16px;
+	outline:none;
+	border-radius:5px;
+	background:#f5f1eb;
+}
+.page-not-found button{
+   background:var(--color-red);
+   color:white;
+   font-weight:600;
+   font-size:16px;
+   border:none;
+   outline:none;
+   cursor:pointer;
+   padding:15px 20px;
+   border-radius:3px;
+   transition:all 0.6s;
+}
+.page-not-found button:hover{
+	background:#2a1510;
+	
 }
