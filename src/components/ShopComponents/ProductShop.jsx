@@ -13,23 +13,23 @@ export default function ProductShop(props){
                         <span>{ props.new ? "New" : "super"}</span>
                         {props.new && <i className="bi bi-star-fill"></i>}
                     </div>
-                    <Link to={`/products/${props.id}`} className={`eye ${props.amount ? "show" :" "}`} state={{search:stateValueOne,amount:props.amount}}>
+                    <Link to={`/products/view/${props.id}`} className={`eye ${props.amount ? "show" :" "}`} state={{search:stateValueOne,amount:props.amount}}>
                            <i className="bi bi-cart4"></i>
                     </Link>
-                    <Link to={`/products/${props.id}`} state={{search:stateValueOne,amount:props.amount}} className="image">
+                    <Link to={`/products/view/${props.id}`} state={{search:stateValueOne,amount:props.amount}} className="image">
                         <img src={props.image1} alt="" />
                     </Link >
-                    <Link to={`/products/${props.id}`} state={{search:stateValueOne,amount:props.amount}} className="category">
+                    <Link to={`/products/view/${props.id}`} state={{search:stateValueOne,amount:props.amount}} className="category">
                         <p>
                         {props.category}
                         </p>
                     </Link>
                     <div className="name-product">
                         <span className="product-name">
-                            <Link to={`/products/${props.id}`} state={{search:stateValueOne,amount:props.amount}}>{props.name}</Link>
+                            <Link to={`/products/view/${props.id}`} state={{search:stateValueOne,amount:props.amount}}>{props.name}</Link>
                         </span>
                     </div>
-                    <Link to={`/products/${props.id}`} state={{search:stateValueOne,amount:props.amount}} className="price-product"><p>K{props.price}
+                    <Link to={`/products/view/${props.id}`} state={{search:stateValueOne,amount:props.amount}} className="price-product"><p>K{props.price}
 
                     </p></Link>
                     <div className="choose-amount">

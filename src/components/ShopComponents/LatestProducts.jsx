@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 export default function LatestProducts(props){
     return(
         <div>
-            <Link to={`/products/${props.id}`} className="latest-product">
+            <Link to={`/products/view/${props.id}`} className="latest-product">
                 <div className="latest-product-image">
                     <img src={props.image} alt="" />
 

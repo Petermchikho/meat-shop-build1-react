@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 export default function HomeOrganicProducts(props){
     return(
         <>
-            <Link to="/products" className="org-product" key={props.id}>
+            <Link to={`/products/view/${props.id}`} className="org-product" key={props.id}>
                 <div className="content-product">
                     <img src={props.image}className="content-product-img" alt="" />
                     <div className="content-product-inner">

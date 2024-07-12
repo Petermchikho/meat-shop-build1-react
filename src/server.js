@@ -29,10 +29,14 @@ createServer({
             new:true,
             name:"processed meat",
             category:"organic",
-            price:2500,
+            price:7000,
             amount:0,
-            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product02.png"
-        
+            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product02.png",
+            review:7,
+            title:"Meat like no other",
+            description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
+            descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
+            reviews:["review 1","review2"]
         })
         server.create("product", {
             id:"3",
@@ -41,8 +45,12 @@ createServer({
             category:"Venison meat",
             price:2500,
             amount:0,
-            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product03.png"
-        
+            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product03.png",
+            review:3,
+            title:"Delicious and Fleshh",
+            description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
+            descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
+            reviews:["review 1","review2"]
         })
         server.create("product", {
             id:"4",
@@ -51,48 +59,68 @@ createServer({
             category:"organic",
             price:2000,
             amount:0,
-            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product04.png"
-        
+            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product04.png",
+            review:2,
+            title:"Delicious and Tender",
+            description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
+            descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
+            reviews:["review 1","review2"]
         })
         server.create("product", {
             id:"5",
             new:true,
             name:"processed meat",
             category:"organic",
-            price:2500,
+            price:3000,
             amount:0,
-            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product05.png"
-        
+            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product05.png",
+            review:5,
+            title:"Delicious Boneless",
+            description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
+            descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
+            reviews:["review 1","review2"]
         })
         server.create("product", {
             id:"6",
             new:true,
             name:"processed meat",
             category:"Venison meat",
-            price:2500,
+            price:2600,
             amount:0,
-            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product06.png"
-        
+            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product06.png",
+            review:5,
+            title:"Venison meat",
+            description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
+            descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
+            reviews:["review 1","review2"]
         })
         server.create("product",{
             id:"7",
             new:true,
             name:"processed meat",
             category:"Venison meat",
-            price:2500,
+            price:2100,
             amount:0,
-            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product07.png"
-        
+            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product07.png",
+            review:3,
+            title:"Delicious meat",
+            description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
+            descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
+            reviews:["review 1","review2"]
         })
         server.create("product", {
             id:"8",
             new:true,
             name:"proast chicken",
             category:"organic",
-            price:2000,
+            price:4000,
             amount:0,
-            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product08.png"
-        
+            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product08.png",
+            review:5,
+            title:"Delicious",
+            description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
+            descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
+            reviews:["review 1","review2"]
         })
         server.create("product", {
             id:"9",
@@ -101,8 +129,12 @@ createServer({
             category:"organic",
             price:2500,
             amount:0,
-            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product09.png"
-        
+            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product09.png",
+            review:5,
+            title:"Meat and Health",
+            description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
+            descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
+            reviews:["review 1","review2"]
         })
         server.create("product", {
             id:"10",
@@ -111,18 +143,26 @@ createServer({
             category:"Venison meat",
             price:2500,
             amount:0,
-            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product10.png"
-        
+            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product10.png",
+            review:5,
+            title:"Delicious meat",
+            description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
+            descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
+            reviews:["review 1","review2"]
         })
         server.create("product", {
             id:"11",
             new:true,
             name:"proast chicken",
             category:"organic",
-            price:2000,
+            price:7000,
             amount:0,
-            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product11.png"
-        
+            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product11.png",
+            review:5,
+            title:"Delicious ",
+            description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
+            descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
+            reviews:["review 1","review2"]
         })
         server.create("product", {
             id:"12",
@@ -131,8 +171,12 @@ createServer({
             category:"organic",
             price:2500,
             amount:0,
-            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product12.png"
-        
+            image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product12.png",
+            review:8,
+            title:"Delicious meat",
+            description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
+            descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
+            reviews:["review 1","review2"]
         })
         server.create("blog", {
             id:1,
@@ -178,7 +222,7 @@ createServer({
             attention:"Meat provide well shape fresh and organic meat well animals is Humans.",
             title:"Good Source of Iron And Flesh Food",
             comments:"07",
-            image:"https://2024-petermchikho.netlify.app/build-1/assets/images/blog_post02.jpg"
+            image:"https://2024-petermchikho.netlify.app/build-1/assets/images/blog_post02.jpg",
     
         })
         server.create("blog", {
@@ -187,10 +231,10 @@ createServer({
             attention:"Meat provide well shape fresh and organic meat well animals is Humans.",
             title:"Chicken Sausage For Sale Humanely Raised",
             comments:"05",
-            image:"https://2024-petermchikho.netlify.app/build-1/assets/images/blog_post03.jpg"
+            image:"https://2024-petermchikho.netlify.app/build-1/assets/images/blog_post03.jpg",
     
         })
-        server.create("user", { id: "123", email: "b@b.com", password: "1234", name: "Peter" })
+        server.create("user", { id: "123", email: "b@b.com", password: "1234", name: "1234" })
     },
 
     routes() {

@@ -33,7 +33,7 @@ export default function Login(){
                     <h4 className="heading">
                         {message}
                     </h4>
-                    <p className="heading">For testing purposes (Username is Peter) (Password is 1234)</p>
+                    <p className="heading">For testing purposes (Username is 1234) (Password is 1234)</p>
                     <h5 className="heading">{errorMessage}</h5>
                     <Form method="post" className="login-form">
                         <input 

@@ -25,7 +25,8 @@ import Error from "./pages/Error"
 import Login,{loader as loginLoader,action as loginAction} from "./pages/Login"
 import{ requireAuth} from "./utils"
 import "./server"
-localStorage.removeItem("loggedIn")
+//localStorage.removeItem("loggedIn")
+
 function App() {
   const router=createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Layout />}>
@@ -33,7 +34,7 @@ function App() {
            <Route path="about" element={<About />} />
            <Route path="products" element={<Shop />} loader={shopLoader} errorElement={<Error />}>
               <Route index element={<ShopOne />} loader={async ({request})=> await requireAuth(request)}/>
-              <Route path=":id" element={<ShopDetail />} loader={shopDetailLoader}>
+              <Route path="view/:id" element={<ShopDetail />} loader={shopDetailLoader}>
                 <Route index element={<ShopDescription />}  loader={async ({request})=> await requireAuth(request)}/>
                 <Route path="review" element={<ShopReviews />} loader={async ({request})=> await requireAuth(request)} />
               </Route>

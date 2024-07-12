@@ -29,7 +29,7 @@ export default function HomeBlog(props){
                 </div>
                 <div className="title-content">
                     <div className="title">
-                        <Link to="/blogs">
+                        <Link to={`/blogs/${props.id}`}>
                             <p>{props.title}</p>
                         </Link>
                         
@@ -41,8 +41,8 @@ export default function HomeBlog(props){
                     </div>
                 </div>
                 <div className="read-more">
-                    <Link to="/blogs"><p className="read-more-p">Read More</p></Link>
-                    <Link to="/blogs" className="button-link">
+                    <Link to={`/blogs/${props.id}`}><p className="read-more-p">Read More</p></Link>
+                    <Link to={`/blogs/${props.id}`} className="button-link">
                         <span>
                             <i className="bi bi-chevron-right"></i>
                         </span>
