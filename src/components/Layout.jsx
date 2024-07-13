@@ -14,7 +14,7 @@ export default function Layout(){
         <div className="home-one">
             <Header products={productsSearch}/>
             <main>
-                <Outlet />
+                <Outlet context={{productsSearch}}/>
             </main>
             <BackToTop />
             <Footer />

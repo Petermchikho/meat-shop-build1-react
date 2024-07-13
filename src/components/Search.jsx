@@ -15,7 +15,7 @@ export default function Search(props){
     }
     function handleSubmit(e){
         e.target.preventDefault()
-        //navigate to the next page
+        //navigate to the next page products results?query=${inputSearch} show length 1 out of
     }
     function addition(id){
         setProducts((prev)=>{

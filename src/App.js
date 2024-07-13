@@ -22,6 +22,7 @@ import ShopDescription from "./pages/Shop/ShopDescription"
 import ShopReviews from "./pages/Shop/ShopReviews"
 import NotFound from "./pages/NotFound"
 import Error from "./pages/Error"
+import SearchResults from "./pages/SearchResults"
 import Login,{loader as loginLoader,action as loginAction} from "./pages/Login"
 import{ requireAuth} from "./utils"
 import "./server"
@@ -45,6 +46,7 @@ function App() {
            <Route path='pages/details' element={<ServicesDetails />} />
            <Route path='pages/team' element={<TeamDetails />} loader={teamLoader}/>
            <Route path="contact" element={<Contact />} />
+           <Route path="products results" element={<SearchResults />} />
            <Route path="login" 
            element={<Login />} 
            loader={loginLoader} 
