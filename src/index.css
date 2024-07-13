@@ -4841,3 +4841,68 @@ p.read-more-p{
 	background:#2a1510;
 	
 }
+
+
+.search-products-main{
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	z-index:3000;
+	max-height:100vh;
+	height:100vh;
+	width:100%;
+	background:rgba(0, 0, 0, 0.5);
+	overflow-y:auto;
+}
+.top-results-search{
+	height:200px;
+	background:#efe8d9;
+	padding:0px 2% 50px 2%;
+}
+.close-search{
+	height:50px;
+	padding:20px 0%;	
+}
+.close-search h5{
+	display:flex;
+	flex-direction:row-reverse;
+	cursor:pointer;
+}
+.top-results-search form{
+ border-bottom:1px solid var(--color-red);
+ padding-bottom:30px;
+ height:100px;
+ display:flex;
+}
+.top-results-search input{
+	color:#2a1510;
+	font-weight:500;
+	text-align:center;
+	font-size:30px;
+	background:transparent;
+	border:none;
+	outline:none;
+	width:calc(100% - 30px);
+}
+.top-results-search button{
+	font-size:25px;
+	color:var(--color-red);
+	background:transparent;
+	border:none;
+	outline:none;
+	width:30px;
+}
+.bottom-remove-search{
+	height:calc(100% - 200px);
+	cursor: url(./assets/images/cross-out.png), pointer;
+}
+.bottom-search-results{
+	min-height:calc(100% - 200px);
+	background:#efe8d9;
+}
+
+.search-products-main .products-shop .product-market-container svg {
+	fill: white;
+  }

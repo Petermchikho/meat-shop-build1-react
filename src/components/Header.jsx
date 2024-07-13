@@ -1,11 +1,13 @@
 import React from "react"
 import Logo from "../assets/images/logo.png"
 import {Link,NavLink,useLocation} from "react-router-dom"
-
-export default function Header(){
+import Search from "./Search";
+export default function Header(props){
+    
     const { pathname } = useLocation();
     const [scroll,setScroll] = React.useState(false)
     const [show,setShow]=React.useState(false)
+    const [search,setSearch]=React.useState(false)
     const headerScrolled = () => {
         if (window.scrollY > 150) {
           setScroll(true)
@@ -16,6 +18,7 @@ export default function Header(){
       }
     React.useEffect(()=>{
         setShow((prev)=> prev ? !prev : prev);
+        setSearch((prev)=> prev ? !prev : prev);
         window.addEventListener('load', headerScrolled);
         document.addEventListener('scroll',headerScrolled);
         return () => {
@@ -32,6 +35,11 @@ export default function Header(){
     const [navInner,setNav]=React.useState(false)
     function clickHandlerOne(){
         setNav((prev)=>!prev)
+    }
+    function handleSearch(){
+        return(
+            setSearch(prev=>!prev)
+        )
     }
     
     
@@ -165,10 +173,10 @@ export default function Header(){
                     </div>
                     <div className="search-contact-icons">
                         <div className="search-icon">
-                            <i className="flaticon-search"></i>
+                            <i className="flaticon-search" onClick={handleSearch}></i>
                         </div>
                         <div className="basket-icon">
-                            <i className="flaticon-shopping-basket">
+                            <i className="flaticon-shopping-basket" >
 
                             </i>
                             <span className="counter">
@@ -263,7 +271,7 @@ export default function Header(){
                     </div>
                     <div className="search-contact-icons">
                         <div className="search-icon">
-                            <i className="flaticon-search"></i>
+                            <i className="flaticon-search" onClick={handleSearch}></i>
                         </div>
                         <div className="basket-icon">
                             <i className="flaticon-shopping-basket">
@@ -280,6 +288,9 @@ export default function Header(){
 
             </div>
           </header>
+          {
+            search && <Search products={props.products}  handleClick={handleSearch}/>
+          }
         
         </>
     )

@@ -6,7 +6,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   Route} from "react-router-dom"
-import Layout from "./components/Layout"
+import Layout,{loader as LayoutLoader} from "./components/Layout"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Blogs,{loader as blogsLoader} from "./pages/Blogs"
@@ -29,7 +29,7 @@ import "./server"
 
 function App() {
   const router=createBrowserRouter(createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
+    <Route path="/" element={<Layout />} loader={LayoutLoader}>
            <Route index element={<Home />} />
            <Route path="about" element={<About />} />
            <Route path="products" element={<Shop />} loader={shopLoader} errorElement={<Error />}>
