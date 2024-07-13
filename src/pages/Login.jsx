@@ -1,6 +1,7 @@
 import React from "react"
-import {useLoaderData,Form,redirect,useActionData,useNavigation} from "react-router-dom"
+import {useLoaderData,Form,redirect,useActionData,useNavigation,Link} from "react-router-dom"
 import {loginUser} from "../api"
+import Logo from "../assets/images/w_logo.png"
 export function loader({request}){
    return new URL(request.url).searchParams.get("message")
    
@@ -27,14 +28,22 @@ export default function Login(){
     const errorMessage=useActionData()
     const navigation=useNavigation()
     return(
-        <div id="about">
-            <section class="hero section-padding">
-                <div className="page-not-found">
+        <div>
+            <section class="login-page section-padding">
+                <div className="login-intro">
+                    <Link to="/">
+                     <img src={Logo} alt="logo"/>
+                    </Link>
+                    <h3 className="intro-login">Welcome</h3>
+                    <h4 className="intro-login">Login to continue</h4>
+                    
+                </div>
+                <div className="page-login">
                     <h4 className="heading">
                         {message}
                     </h4>
-                    <p className="heading">For testing purposes (Username is 1234) (Password is 1234)</p>
-                    <h5 className="heading">{errorMessage}</h5>
+                    <p className="heading-login">For testing purposes (Username is 1234) (Password is 1234)</p>
+                    <p className="heading-login-warning">{errorMessage}</p>
                     <Form method="post" className="login-form">
                         <input 
                         name="firstName"

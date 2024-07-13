@@ -12,13 +12,13 @@ createServer({
         server.create("product", {
             id:"1",
             new:true,
-            name:"proast chicken",
+            name:"beef steak",
             category:"organic",
-            price:2000,
+            price:3000,
             amount:0,
             image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product01.png",
             review:5,
-            title:"Delicious meat",
+            title:"Beef steak",
             description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
             descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
             reviews:["review 1","review2"]
@@ -27,9 +27,9 @@ createServer({
         server.create("product", {
             id:"2",
             new:true,
-            name:"processed meat",
+            name:"pork meat",
             category:"organic",
-            price:7000,
+            price:4800,
             amount:0,
             image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product02.png",
             review:7,
@@ -41,13 +41,13 @@ createServer({
         server.create("product", {
             id:"3",
             new:true,
-            name:"processed meat",
+            name:"goat liver",
             category:"Venison meat",
             price:2500,
             amount:0,
             image1:"https://2024-petermchikho.netlify.app/build-1/assets/images/inner_product03.png",
             review:3,
-            title:"Delicious and Fleshh",
+            title:"Delicious and Flesh",
             description:"Meat provide well shaped fresh and the organic meat well animals is Humans have hunted schistoric times meat, the flesh",
             descriptionFull:"committed are products that have been produced using sustainable fibers or processes, reducing their environmental impact. Umino’s goal is to support the implementation of practices more committed to the environment. I am like a freight train. Working on the details, twisting and playing with them over the years, but always staying on the same track I design from instinct. It’s the only way I know how to live",
             reviews:["review 1","review2"]
@@ -55,7 +55,7 @@ createServer({
         server.create("product", {
             id:"4",
             new:true,
-            name:"proast chicken",
+            name:"chicken thighs",
             category:"organic",
             price:2000,
             amount:0,
@@ -69,7 +69,7 @@ createServer({
         server.create("product", {
             id:"5",
             new:true,
-            name:"processed meat",
+            name:"beef shank",
             category:"organic",
             price:3000,
             amount:0,
@@ -83,7 +83,7 @@ createServer({
         server.create("product", {
             id:"6",
             new:true,
-            name:"processed meat",
+            name:"ground beef",
             category:"Venison meat",
             price:2600,
             amount:0,
@@ -97,7 +97,7 @@ createServer({
         server.create("product",{
             id:"7",
             new:true,
-            name:"processed meat",
+            name:"goat meat",
             category:"Venison meat",
             price:2100,
             amount:0,
@@ -111,7 +111,7 @@ createServer({
         server.create("product", {
             id:"8",
             new:true,
-            name:"proast chicken",
+            name:"chicken",
             category:"organic",
             price:4000,
             amount:0,
@@ -125,7 +125,7 @@ createServer({
         server.create("product", {
             id:"9",
             new:true,
-            name:"processed meat",
+            name:"chicken thighs",
             category:"organic",
             price:2500,
             amount:0,
@@ -139,7 +139,7 @@ createServer({
         server.create("product", {
             id:"10",
             new:true,
-            name:"processed meat",
+            name:"chicken",
             category:"Venison meat",
             price:2500,
             amount:0,
@@ -153,7 +153,7 @@ createServer({
         server.create("product", {
             id:"11",
             new:true,
-            name:"proast chicken",
+            name:"chicken thighs",
             category:"organic",
             price:7000,
             amount:0,
@@ -167,7 +167,7 @@ createServer({
         server.create("product", {
             id:"12",
             new:true,
-            name:"processed meat",
+            name:"sausage",
             category:"organic",
             price:2500,
             amount:0,

@@ -4870,7 +4870,7 @@ p.read-more-p{
 	flex-direction:row-reverse;
 	cursor:pointer;
 }
-.top-results-search form{
+.top-results-search .form-search-main{
  border-bottom:1px solid var(--color-red);
  padding-bottom:30px;
  height:100px;
@@ -4905,4 +4905,123 @@ p.read-more-p{
 
 .search-products-main .products-shop .product-market-container svg {
 	fill: white;
+  }
+h6.search-heading{
+	text-transform:capitalize;
+	font-size:18px;
+	margin:10px 2%;
+}
+
+
+.login-page{
+	background-image: url(./assets/images/team_bg.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding:7% 2%;
+	min-height:100vh;
+	position: relative;
+	color:white;
+	display:flex;
+	justify-content:space-between;
+	position:relative;
+  }
+  .login-page::after{
+	content: " ";
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0,0,0,0.5);
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+	position: absolute;
+  }
+  .login-page div{
+	z-index:1;
+  }
+  .login-intro{
+	flex-basis:40%;
+	color:white;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+  }
+  .login-intro .intro-login{
+	color:white;
+	text-align:center;
+  }
+  .page-login{
+	flex-basis:40%;
+	background:rgba(0,0,0,0.5);
+	padding:20px;
+	border-radius:5px;
+	display:flex;
+	flex-direction:column;
+  }
+  @media screen and (max-width:930px){
+	.login-page{
+		flex-direction:column;
+		justify-content:center;
+		align-items:center;
+	  }
+	.login-intro{
+		flex-basis:70%;
+		margin:20px auto;
+	  }
+	  
+	  .page-login{
+		flex-basis:70%;
+		margin:20px auto;
+	  }
+  }
+  @media screen and (max-width:680px){
+	.login-intro{
+		flex-basis:95%;
+		
+	  }
+	  
+	  .page-login{
+		flex-basis:95%;
+		
+	  }
+  }
+  .page-login .login-form{
+	display:flex;
+	flex-direction:column;
+	padding:10px;
+	border-radius:5px;
+	width:100%;
+  }
+  .page-login .login-form input{
+	padding:20px 10px;
+	border-radius:5px;
+	margin:10px auto;
+	border:none;
+	outline:none;
+	width:100%;
+	font-size:16px;
+  }
+  .page-login .login-form button{
+	padding:20px 10px;
+	width:100%;
+	border-radius:30px;
+	margin:10px auto;
+	border:none;
+	outline:none;
+	background:var(--color-red);
+	font-size:18px;
+	color:white;
+	transition:all 0.5s;
+  }
+  p.heading-login-warning{
+	color:var(--color-red);
+	text-align:center;
+	font-size:20px;
+  }
+  p.heading-login{
+	text-align:center;
+	font-size:20px;
+	margin-top:10px;
   }

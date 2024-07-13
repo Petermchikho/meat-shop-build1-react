@@ -50,8 +50,9 @@ export default function Pages(){
             <HeroGeneral
                 title="search results"
             />
+            {query ? 
             <section class="organic-products-team">
-               
+               <h6 className="search-heading">showing {productsElements.length} of {productsElements.length} of your results</h6>
                 <div class="products-shop ">
                     {productsElements}
                 </div>
@@ -61,6 +62,17 @@ export default function Pages(){
                     </button></Link>
                 </div>
             </section>
+            :
+            <section class="organic-products-team">
+               
+                <h6 className="search-heading">showing 0 of 0 of your results</h6>
+                <div class="shop-now">
+                    <Link to="/products" ><button>
+                        Go to shop
+                    </button></Link>
+                </div>
+            </section>
+            }
             
         
         </div>

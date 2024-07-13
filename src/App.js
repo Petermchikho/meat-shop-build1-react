@@ -30,6 +30,7 @@ import "./server"
 
 function App() {
   const router=createBrowserRouter(createRoutesFromElements(
+    <>
     <Route path="/" element={<Layout />} loader={LayoutLoader}>
            <Route index element={<Home />} />
            <Route path="about" element={<About />} />
@@ -46,14 +47,17 @@ function App() {
            <Route path='pages/details' element={<ServicesDetails />} />
            <Route path='pages/team' element={<TeamDetails />} loader={teamLoader}/>
            <Route path="contact" element={<Contact />} />
-           <Route path="products results" element={<SearchResults />} />
-           <Route path="login" 
+           <Route path="products/search" element={<SearchResults />} />
+           
+           <Route path="*" element={<NotFound />} />
+    </Route>
+    <Route path="/login" 
            element={<Login />} 
            loader={loginLoader} 
            action={loginAction} 
-           errorElement={<Error />}/>
-           <Route path="*" element={<NotFound />} />
-    </Route>
+           errorElement={<Error />}
+    />
+    </>
 
   ))
   return (

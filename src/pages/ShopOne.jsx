@@ -119,7 +119,7 @@ export default function ShopOne(){
                                 <div className="left">
                                     <div className="shop-left-top">
                                         <div className="title">
-                                            <p>Showing 1–09 of 20 results</p>
+                                            <p>Showing 1–{productsElements.length} of 20 results</p>
                                         </div>
                                         <div className="filter-form">
                                             <div className="filter-box-container">

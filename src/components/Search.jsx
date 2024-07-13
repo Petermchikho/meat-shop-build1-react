@@ -1,9 +1,8 @@
 import React from "react"
 import { IoClose } from "react-icons/io5";
 import ProductShop from "./ShopComponents/ProductShop"
-import {useSearchParams } from "react-router-dom"
+import {useSearchParams,Link } from "react-router-dom"
 export default function Search(props){
-    console.log("the products search",props.products)
     const data=props.products
     const [products,setProducts]=React.useState(data)
     const [searchParams,setSearchParams]=useSearchParams()
@@ -13,10 +12,7 @@ export default function Search(props){
         setInputSearch(e.target.value)
         
     }
-    function handleSubmit(e){
-        e.target.preventDefault()
-        //navigate to the next page products results?query=${inputSearch} show length 1 out of
-    }
+    
     function addition(id){
         setProducts((prev)=>{
             return prev.map((item)=>{
@@ -44,20 +40,22 @@ export default function Search(props){
                     </h5>
 
                 </div>
-                <form onSubmit={handleSubmit}>
+                <div className="form-search-main" >
                     <input 
                     type="text" 
                     placeholder="Search meat product..." 
                     value={inputSearch} 
                     name="inputSearch"
                     onChange={handleChange} />
-                    <button>
-                        <i className="bi bi-search">
+                    <button >
+                        <Link to={`/products/search?query=${inputSearch}`}>
+                            <i className="bi bi-search">
 
-                        </i>
+                            </i>
+                        </Link>
 
                     </button>
-                </form>
+                </div>
 
             </div>
             {inputSearch
