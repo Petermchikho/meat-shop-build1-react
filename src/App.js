@@ -25,7 +25,7 @@ import Error from "./pages/Error"
 import SearchResults from "./pages/SearchResults"
 import Login,{loader as loginLoader,action as loginAction} from "./pages/Login"
 import{ requireAuth} from "./utils"
-import "./server"
+
 //localStorage.removeItem("loggedIn")
 
 function App() {

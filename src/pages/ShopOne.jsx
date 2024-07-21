@@ -9,7 +9,19 @@ import IgImage2 from "../assets/images/s_insta_img02.jpg"
 import IgImage3 from "../assets/images/s_insta_img03.jpg"
 import IgImage4 from "../assets/images/s_insta_img04.jpg"
 import ShopPreLoader from "./Shop/ShopPreloader"
+import {selectAllProducts,getProductsStatus,getProductsError,fetchProducts} from "../store/productsSlice"
+import { useSelector,useDispatch } from "react-redux";
 export default function ShopOne(){
+    const dispatch=useDispatch()
+    const productsRedux=useSelector(selectAllProducts)
+    const productsStatus=useSelector(getProductsStatus)
+    const error=useSelector(getProductsError)
+    React.useEffect(()=>{
+        if(productsStatus=== 'idle'){
+            dispatch(fetchProducts())
+        }
+    },[productsStatus,dispatch])
+    console.log("the products from redux are ",productsRedux[0].products )
     const {allProducts}=useOutletContext()
     const [products,setProducts]=React.useState([])
     
