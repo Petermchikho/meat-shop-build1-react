@@ -4,6 +4,7 @@ import Header from "./Header"
 import Footer from "./Footer"
 import BackToTop from "./BackToTop"
 import GoToTop from "./GoToTop"
+import CartItems from "./CartItems"
 import {getProducts} from "../api"
 export function loader(){
    return getProducts()
@@ -13,6 +14,7 @@ export default function Layout(){
     return(
         <div className="home-one">
             <Header products={productsSearch}/>
+            <CartItems />
             <main>
                 <Outlet context={{productsSearch}}/>
             </main>

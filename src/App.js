@@ -9,13 +9,13 @@ import {
 import Layout,{loader as LayoutLoader} from "./components/Layout"
 import Home from "./pages/Home"
 import About from "./pages/About"
-import Blogs,{loader as blogsLoader} from "./pages/Blogs"
-import BlogDetails,{loader as blogsDetailsLoader} from "./pages/BlogDetails"
+import Blogs from "./pages/Blogs"
+import BlogDetails from "./pages/BlogDetails"
 import Contact from "./pages/Contact"
 import Pages from "./pages/Pages"
 import ServicesDetails from "./pages/ServicesDetails"
-import Shop,{loader as shopLoader} from "./pages/Shop"
-import TeamDetails,{loader as teamLoader} from "./pages/TeamDetails"
+import Shop from "./pages/Shop"
+import TeamDetails from "./pages/TeamDetails"
 import ShopOne from "./pages/ShopOne"
 import ShopDetail,{loader as shopDetailLoader} from "./pages/ShopDetail"
 import ShopDescription from "./pages/Shop/ShopDescription"
@@ -34,18 +34,18 @@ function App() {
     <Route path="/" element={<Layout />} loader={LayoutLoader}>
            <Route index element={<Home />} />
            <Route path="about" element={<About />} />
-           <Route path="products" element={<Shop />} loader={shopLoader} errorElement={<Error />}>
+           <Route path="products" element={<Shop />} loader={async ({request})=> await requireAuth(request)} errorElement={<Error />}>
               <Route index element={<ShopOne />} loader={async ({request})=> await requireAuth(request)}/>
-              <Route path="view/:id" element={<ShopDetail />} loader={shopDetailLoader}>
+              <Route path="view/:id" element={<ShopDetail />} loader={async ({request})=> await requireAuth(request)}>
                 <Route index element={<ShopDescription />}  loader={async ({request})=> await requireAuth(request)}/>
                 <Route path="review" element={<ShopReviews />} loader={async ({request})=> await requireAuth(request)} />
               </Route>
            </Route>
-           <Route path="blogs" element={<Blogs />} loader={blogsLoader}/>
-           <Route path="blogs/:id" element={<BlogDetails />} loader={blogsDetailsLoader} />
+           <Route path="blogs" element={<Blogs />} />
+           <Route path="blogs/:id" element={<BlogDetails />}  />
            <Route path="pages" element={<Pages />} />
            <Route path='pages/details' element={<ServicesDetails />} />
-           <Route path='pages/team' element={<TeamDetails />} loader={teamLoader}/>
+           <Route path='pages/team' element={<TeamDetails />} />
            <Route path="contact" element={<Contact />} />
            <Route path="products/search" element={<SearchResults />} />
            

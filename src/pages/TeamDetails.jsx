@@ -5,35 +5,27 @@ import TeamImg from "../assets/images/team_info_thumb.png"
 import MemberIcon from "../assets/images/member_icon.png"
 import Image1 from "../assets/images/sd_img02.jpg"
 import ProductShop from "../components/ShopComponents/ProductShop"
-import {getProducts} from "../api"
 import { useLoaderData,useSearchParams,Link } from "react-router-dom"
 import Shape from "../assets/images/title_shape.png"
-export function loader(){
-    return getProducts()
-}
+import {selectAllProducts,selectAllCartProducts,getProductsStatus,getProductsError,fetchProducts} from "../store/productsSlice"
+import { useSelector,useDispatch } from "react-redux";
+
 export default function TeamDetails(){
-    const data=useLoaderData()
-    const [products,setProducts]=React.useState(data)
+    const dispatch=useDispatch()
+    const productsRedux=useSelector(selectAllProducts)
+    const productsCart=useSelector(selectAllCartProducts)
+    const productsStatus=useSelector(getProductsStatus)
+    const error=useSelector(getProductsError)
+    React.useEffect(()=>{
+        if(productsStatus=== 'idle'){
+            dispatch(fetchProducts())
+        }
+    },[productsStatus,dispatch])
+
+    const displayedProducts=productsRedux.filter((item)=>item.category === "organic")
     const [searchParams,setSearchParams]=useSearchParams()
     const stateSearch=searchParams.toString()
-    const displayedProducts=products.filter((product)=>{
-        return(product.category==="organic")
-    })
-    function addition(id){
-        setProducts((prev)=>{
-            return prev.map((item)=>{
-                return (item.id === id ?{...item,amount:item.amount +1} : item)
-            })
-        })
-    }
-    function subtract(id){
-        setProducts((prev)=>{
-            return prev.map((item)=>{
-                return (item.id === id && item.amount>0 ?{...item,amount:item.amount -1} : item)
-            })
-        })
-
-    }
+        
     const productsElements=displayedProducts.slice(-4).map((item)=>{
         return(
             <ProductShop 
@@ -45,8 +37,6 @@ export default function TeamDetails(){
                 price={item.price}
                 amount={item.amount}
                 image1={item.image1}
-                onAdd={addition}
-                onSubtract={subtract}
                 state={stateSearch}
             />
 

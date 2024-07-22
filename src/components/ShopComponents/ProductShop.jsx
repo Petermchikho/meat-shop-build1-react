@@ -1,47 +1,62 @@
 import React from "react"
 import {Link} from "react-router-dom"
-
+import { useDispatch, useSelector } from "react-redux";
+import {productsActions} from "../../store/productsSlice"
 export default function ProductShop(props){
     const stateValueOne= props.state
+    const dispatch=useDispatch()
+    const id=props.id
+    function addition(){
+        dispatch(productsActions.addToCart({id}))
+    }
+    function subtract(){
+        dispatch(productsActions.removeFromCart({id})) 
+    }
+    function showCart(){
+        dispatch(productsActions.showCartItems())
+      }
     return(
         
         <>
           <div  className="product-market-container">
                 <div className="product-details">
-                    <div className="minor-detail-star">
+                    <Link to={`/products/view/${props.id}`} state={{search:stateValueOne,amount:props.amount}}>
+                        <div className="minor-detail-star">
 
-                        <span>{ props.new ? "New" : "super"}</span>
-                        {props.new && <i className="bi bi-star-fill"></i>}
-                    </div>
-                    <Link to={`/products/view/${props.id}`} className={`eye ${props.amount ? "show" :" "}`} state={{search:stateValueOne,amount:props.amount}}>
+                            <span>{ props.new ? "New" : "super"}</span>
+                            {props.new && <i className="bi bi-star-fill"></i>}
+                        </div>
+                        
+                        <div state={{search:stateValueOne,amount:props.amount}} className="image">
+                            <img src={props.image1} alt="" />
+                        </div >
+                        <div state={{search:stateValueOne,amount:props.amount}} className="category">
+                            <p>
+                            {props.category}
+                            </p>
+                        </div>
+                        <div className="name-product">
+                            <span className="product-name">
+                                <Link to={`/products/view/${props.id}`} state={{search:stateValueOne,amount:props.amount}}>{props.name}</Link>
+                            </span>
+                        </div>
+                        <div state={{search:stateValueOne,amount:props.amount}} className="price-product"><p>K{props.price}
+
+                        </p></div>
+                    </Link>
+                    <div onClick={showCart} className={`eye ${props.amount ? "show" :" "}`} state={{search:stateValueOne,amount:props.amount}}>
                            <i className="bi bi-cart4"></i>
-                    </Link>
-                    <Link to={`/products/view/${props.id}`} state={{search:stateValueOne,amount:props.amount}} className="image">
-                        <img src={props.image1} alt="" />
-                    </Link >
-                    <Link to={`/products/view/${props.id}`} state={{search:stateValueOne,amount:props.amount}} className="category">
-                        <p>
-                        {props.category}
-                        </p>
-                    </Link>
-                    <div className="name-product">
-                        <span className="product-name">
-                            <Link to={`/products/view/${props.id}`} state={{search:stateValueOne,amount:props.amount}}>{props.name}</Link>
-                        </span>
                     </div>
-                    <Link to={`/products/view/${props.id}`} state={{search:stateValueOne,amount:props.amount}} className="price-product"><p>K{props.price}
-
-                    </p></Link>
                     <div className="choose-amount">
                         <div className="button-shape">
-                            <span className="subtract-product" onClick={()=>props.onSubtract(props.id)}>
+                            <span className="subtract-product" onClick={subtract}>
                                 -
                             </span>
 
                             <span className="amount">
                                 {props.amount}
                             </span>
-                            <span className="add-product" onClick={()=>props.onAdd(props.id)}>
+                            <span className="add-product" onClick={addition}>
                                 +
                             </span>
 

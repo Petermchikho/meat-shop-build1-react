@@ -2,8 +2,17 @@ import React from "react"
 import Logo from "../assets/images/logo.png"
 import {Link,NavLink,useLocation} from "react-router-dom"
 import Search from "./Search";
+import { useSelector,useDispatch } from "react-redux";
+import {productsActions} from "../store/productsSlice";
+import {showAllCartItems,selectAllCartProducts,allCartProductsTotal} from "../store/productsSlice";
 export default function Header(props){
-    
+    const cartShow=useSelector(showAllCartItems);
+    const cartItems=useSelector(selectAllCartProducts);
+    const cartTotal=useSelector(allCartProductsTotal)
+    const dispatch=useDispatch()
+    function showCart(){
+        dispatch(productsActions.showCartItems())
+    }
     const { pathname } = useLocation();
     const [scroll,setScroll] = React.useState(false)
     const [show,setShow]=React.useState(false)
@@ -175,12 +184,12 @@ export default function Header(props){
                         <div className="search-icon">
                             <i className="flaticon-search" onClick={handleSearch}></i>
                         </div>
-                        <div className="basket-icon">
+                        <div className="basket-icon" onClick={showCart}>
                             <i className="flaticon-shopping-basket" >
 
                             </i>
                             <span className="counter">
-                                0
+                               {cartTotal}
                             </span>
                         </div>
 
@@ -273,12 +282,12 @@ export default function Header(props){
                         <div className="search-icon">
                             <i className="flaticon-search" onClick={handleSearch}></i>
                         </div>
-                        <div className="basket-icon">
+                        <div className="basket-icon" onClick={showCart}>
                             <i className="flaticon-shopping-basket">
 
                             </i>
                             <span className="counter">
-                                0
+                               {cartTotal}
                             </span>
                         </div>
 

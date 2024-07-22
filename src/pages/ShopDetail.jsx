@@ -1,7 +1,9 @@
 import React , { useRef, useState } from "react"
 import HeroGeneral from "../components/HeroGeneral"
-import {useLocation,NavLink,Link,Outlet,useLoaderData,useOutletContext,Await} from "react-router-dom"
+import {useLocation,NavLink,Link,Outlet,useLoaderData,useOutletContext,Await,useParams} from "react-router-dom"
+
 import ProductShop from "../components/ShopComponents/ProductShop"
+import ShopDateCount from "../components/ShopComponents/ShopDateCount"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -17,52 +19,41 @@ import 'swiper/css/pagination';
 import { FreeMode, Navigation, Thumbs ,Pagination , Autoplay} from 'swiper/modules';
 import {getProducts} from "../api"
 import {requireAuth} from "../utils"
+import {selectAllProducts,selectAllCartProducts,getProductsStatus,getProductsError,fetchProducts} from "../store/productsSlice"
+import { useSelector,useDispatch } from "react-redux";
+import {productsActions} from "../store/productsSlice"
 
-export async function loader({params,request}){
-  await requireAuth(request)
-  return getProducts(params.id)
-}
 
 export default function ShopDetail(){
-    const dataProduct=useLoaderData()
-    const {allProducts}=useOutletContext()
-    const [products,setProducts]=React.useState([])
-    const [product,setProduct]=React.useState(dataProduct)
-    const [timerDays,setTimerDays] = useState("00");
-    const [timerHours,setTimerHours] = useState("00");
-    const [timerMinutes,setTimerMinutes] = useState("00");
-    const [timerSeconds,setTimerSeconds] = useState("00");
-
-    let interval = useRef();
-    const startTimer=()=>{
-      const countDownDate =new Date("Jul 30, 2024 00:00:00").getTime();
-      interval=setInterval(() => {
-          const now =new Date().getTime();
-          const distance = countDownDate - now
-          const days =Math.floor(distance / (1000* 60 * 60 * 24));
-          const hours =Math.floor((distance % (1000* 60 * 60 * 24))/ (1000* 60 * 60 ));
-          const minutes =Math.floor((distance % (1000* 60 * 60))/ (1000* 60 ));
-          const seconds =Math.floor((distance % (1000* 60 ))/ (1000 ));
-          if(distance <0){
-              clearInterval(interval.current);
-          }else{
-            setTimerDays(days)
-            setTimerMinutes(minutes)
-            setTimerHours(hours)
-            setTimerSeconds(seconds)
-
-          }
-      }, 1000);
-
-    }
+    const dispatch=useDispatch()
+    const productsRedux=useSelector(selectAllProducts)
+    const productsCart=useSelector(selectAllCartProducts)
+    const productsStatus=useSelector(getProductsStatus)
+    const error=useSelector(getProductsError)
+    console.log("the products cart ",productsCart )
+    
     React.useEffect(()=>{
-      startTimer();
-      return ()=>{
-        clearInterval(interval.current);
-      }
-
-    },[])
-
+        if(productsStatus=== 'idle'){
+            dispatch(fetchProducts())
+        }
+    },[productsStatus,dispatch])
+    const params=useParams()
+    const id=params.id
+    function addition(){
+        dispatch(productsActions.addToCart({id}))
+    }
+    function subtract(){
+        dispatch(productsActions.removeFromCart({id})) 
+    }
+    function showCart(){
+      dispatch(productsActions.showCartItems())
+    }
+    const products=productsRedux
+    const productArray=products.filter((item)=>item.id === params.id)
+    const product=productArray[0]
+    const productRelated=products.filter((item)=>item.category === product.category)
+    console.log("the product single ok",product )
+    console.log("the hell")
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     
     
@@ -71,23 +62,7 @@ export default function ShopDetail(){
     
     const Location=useLocation();
     const search= Location.state?.search || ""
-    const locationAmount=Location.state?.amount || 0
-    const [amount,setAmount]=React.useState(locationAmount)
-    function additionProduct(){
-      setAmount((prev)=>{
-          return prev+1
-      })
-  }
-  function subtractProduct(){
-      setAmount((prev)=>{
-          if(prev>0){
-            return prev-1 
-          }else{
-            return prev
-          }
-      })
-
-  }
+    
     return(
         <div id="about">
         <HeroGeneral
@@ -166,28 +141,7 @@ export default function ShopDetail(){
                         - In stock
                     </p>
                 </div>
-                <div class="sales-end-in">
-                    <p>Hurry Up! Sale ends in:</p>
-                    <div class="time-counter">
-                        
-                        <div class="info">
-                            <span class="info-first" id="days">{timerDays}</span>
-                            <span>days</span>
-                        </div>
-                        <div class="info">
-                            <span class="info-first" id="hours">{timerHours}</span>
-                            <span>hours</span>
-                        </div>
-                        <div class="info">
-                            <span class="info-first" id="minutes">{timerMinutes}</span>
-                            <span>mins</span>
-                        </div>
-                        <div class="info">
-                            <span class="info-first" id="seconds">{timerSeconds}</span>
-                            <span>secs</span>
-                        </div>
-                    </div>
-                </div>
+                <ShopDateCount />
                 <div class="minor-details-sale">
                     <p>{product.description}</p>
                 </div>
@@ -197,16 +151,16 @@ export default function ShopDetail(){
                 <div class="purchase-quantity">
                     <div class="quantity">
                         <div class="add-sub">
-                            <span class="subtract hover" onClick={subtractProduct}>-</span>
-                            <span class="border">{amount}</span>
-                            <span class="add hover" onClick={additionProduct}>+</span>
+                            <span class="subtract hover" onClick={subtract}>-</span>
+                            <span class="border">{product.amount}</span>
+                            <span class="add hover" onClick={addition}>+</span>
                         </div>
-                        <div class="purchase-button">
+                        <div class="purchase-button" onClick={showCart}>
                             <span>Purchase</span>
                         </div>
                     </div>
-                    <div class="Buy-now">
-                        <span>BUY IT NOW</span>
+                    <div class="Buy-now" onClick={showCart}>
+                        <span>Add to cart</span>
                     </div>
                 </div>
                 <div class="sales-end-in">
@@ -265,97 +219,64 @@ export default function ShopDetail(){
                 </h4>
                 <img src="../assets/images/title_shape.png" alt="" />
             </div>
-            <React.Suspense fallback={<h3>loading....</h3>}>
-            
-              <Await resolve={allProducts.allProducts}>
-                {(allProducts)=>{
-                   if(products.length < 1){
-                        setProducts(allProducts)
+            <div class="related-slides ">
+              <Swiper breakpoints={
+                    {
+                      // when window width is >= 594px
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 10
+                        },
+                    600: {
+                    slidesPerView: 2,
+                    spaceBetween: 10
+                    },
+                    // when window width is >= 902px
+                    902: {
+                    slidesPerView: 3,
+                    spaceBetween: 10
+                    },
+                    // when window width is >= 1200px
+                    1200: {
+                    slidesPerView: 4,
+                    spaceBetween: 10
                     }
-                    function addition(id){
-                        setProducts((prev)=>{
-                            return prev.map((item)=>{
-                                return (item.id === id ?{...item,amount:item.amount +1} : item)
-                            })
-                        })
                     }
-                    function subtract(id){
-                        setProducts((prev)=>{
-                            return prev.map((item)=>{
-                                return (item.id === id && item.amount>0 ?{...item,amount:item.amount -1} : item)
-                            })
-                        })
+                }
                 
-                    }
-                    
+                spaceBetween={10}
+                loop= "true"
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
+                
+                className="mySwiper second"
+              >
+                {
+                  productRelated.map((item)=>{
                     return(
-                      <div class="related-slides ">
-            <Swiper breakpoints={
-                  {
-                    // when window width is >= 594px
-                  0: {
-                      slidesPerView: 1,
-                      spaceBetween: 10
-                      },
-                  600: {
-                  slidesPerView: 2,
-                  spaceBetween: 10
-                  },
-                  // when window width is >= 902px
-                  902: {
-                  slidesPerView: 3,
-                  spaceBetween: 10
-                  },
-                  // when window width is >= 1200px
-                  1200: {
-                  slidesPerView: 4,
-                  spaceBetween: 10
-                  }
-                  }
-              }
-              
-              spaceBetween={10}
-              loop= "true"
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              
-              className="mySwiper second"
-            >
-              {
-                products.map((item)=>{
-                  return(
-                    <SwiperSlide>
-                      <ProductShop 
-                      key={item.id}
-                      id={item.id}
-                      new={item.new}
-                      category={item.category}
-                      name={item.name}
-                      price={item.price}
-                      amount={item.amount}
-                      image1={item.image1}
-                      onAdd={addition}
-                      onSubtract={subtract}
-                      />
-                    </SwiperSlide>
-                  )
+                      <SwiperSlide>
+                        <ProductShop 
+                        key={item.id}
+                        id={item.id}
+                        new={item.new}
+                        category={item.category}
+                        name={item.name}
+                        price={item.price}
+                        amount={item.amount}
+                        image1={item.image1}
+                        />
+                      </SwiperSlide>
+                    )
 
-                })
-              }
-              
-            </Swiper>
+                  })
+                }
                 
+              </Swiper>
+              
 
             </div>
-                    )
-                    
-
-                  }}
-                </Await>
-  
-              </React.Suspense>
             
         </section>
     
