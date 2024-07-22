@@ -1,7 +1,8 @@
 import React from 'react'
 import {showAllCartItems,selectAllCartProducts} from "../store/productsSlice"
 import { useSelector,useDispatch } from "react-redux";
-import {productsActions} from "../store/productsSlice"
+import {productsActions} from "../store/productsSlice";
+import Payment from "../assets/images/payment-icons.png"
 function CartItems() {
     const cartShow=useSelector(showAllCartItems);
     const cartItems=useSelector(selectAllCartProducts)
@@ -20,7 +21,7 @@ function CartItems() {
 
   return (
     <section class={`cart-items-main ${cartShow ? "show" : " "}`}>
-        <div class="left-cart-items">
+        <div class="left-cart-items" onClick={showCart}>
 
         </div>
         <div class="cart-items">
@@ -80,7 +81,7 @@ function CartItems() {
                 <div class="Buy-now">
                     <span>Check out <span class="small-circle"><i class="bi bi-record-fill"></i></span> K{total}</span>
                 </div>
-                <img src="assets/images/payment-icons.png" alt="" />
+                <img src={Payment} alt="" />
 
             </div>
 
