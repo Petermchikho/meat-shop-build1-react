@@ -50,15 +50,24 @@ export const productsSlice=createSlice({
         removeFromCart(state,action){
             const newItem=action.payload;
             const productClicked =state.products.find( (item)=> item.id === newItem.id);
+            if(productClicked.amount){productClicked.amount--;}
+
+            //adding to the cart
+
+            const existingCartProduct =state.productsCart.find( (item)=> item.id === productClicked.id);
             //incrementing the product
-            if(productClicked.amount){productClicked.amount--}
+            if(existingCartProduct.amount){
+                existingCartProduct.amount--;
+                existingCartProduct.totalPrice -=productClicked.price ;
+            }
             if(productClicked.amount === 0 ){
                 state.productsCart = state.productsCart.filter(item=> item.id !== newItem.id)
                 state.totalQuantity--;
-            }else{
-                productClicked.amount--;
-                productClicked.totalPrice -=productClicked.price 
             }
+            // else{
+            //     productClicked.amount--;
+            //     productClicked.totalPrice -=productClicked.price 
+            // }
 
         },
         removeFromCartOnce(state,action){
